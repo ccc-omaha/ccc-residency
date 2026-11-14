@@ -1,0 +1,189 @@
+{
+  "intro": {
+    "eyebrow": "The program",
+    "heading": "Two years of ministry, mentoring, and a master's degree.",
+    "text": "Our purpose is to raise up and equip next-generation leaders for work in church ministry. CCC Church Residency combines focused leadership training and practical ministry experience with a graduate-level academic program, so you leave ready to serve your local church."
+  },
+  "week": {
+    "eyebrow": "Your week",
+    "heading": "What a typical week looks like.",
+    "items": [
+      {
+        "hours": "28–30",
+        "label": "Ministry",
+        "text": "Hands-on work in your area of focus, plus training in the general skills every ministry leader needs.",
+        "color": "Blue",
+        "max": 30
+      },
+      {
+        "hours": "12–18",
+        "label": "Graduate school",
+        "text": "Online coursework through Crown College, on your own schedule.",
+        "color": "Orange",
+        "max": 18
+      }
+    ],
+    "note": "Cohort leadership development with your fellow residents is built into the rhythm of the week."
+  },
+  "development": {
+    "eyebrow": "What you'll develop",
+    "heading": "Ministry takes more than one skill.",
+    "text": "The residency is built to give you a well-rounded set of competencies for full-time church ministry.",
+    "items": [
+      {
+        "title": "Leadership development",
+        "color": "Purple",
+        "points": [
+          "Creating and casting mission and vision",
+          "Strategic planning",
+          "Goal setting",
+          "Building and leading teams",
+          "Creating a reproducing, sending leadership culture"
+        ]
+      },
+      {
+        "title": "Ministry experience",
+        "color": "Blue",
+        "points": [
+          "Up-front communication like preaching and teaching",
+          "General pastoral duties like weddings and funerals",
+          "Pastoral counseling",
+          "Creating a volunteer culture: recruiting, training, and retaining",
+          "Evangelism",
+          "Specialized skills in your area of focus"
+        ]
+      },
+      {
+        "title": "Biblical and theological education",
+        "color": "Orange",
+        "points": [
+          "Graduate-level study through Crown College",
+          "Fully funded, including books and fees",
+          "Completed online alongside your ministry work"
+        ]
+      }
+    ]
+  },
+  "areas": {
+    "eyebrow": "Areas of focus",
+    "heading": "Choose your ministry area.",
+    "text": "Residents choose a primary area of focus and work with a mentor inside it, based on their calling, gifts, and passions.",
+    "note": "Not sure yet? That's fine. Tell us on your application.",
+    "items": [
+      {
+        "title": "Kids Ministry",
+        "text": "Help children and their families build a foundation of faith.",
+        "color": "Orange"
+      },
+      {
+        "title": "Middle School and High School",
+        "text": "Disciple students through the years that shape who they become.",
+        "color": "Magenta"
+      },
+      {
+        "title": "College and Young Adults",
+        "text": "Reach and disciple college students and young adults across Omaha.",
+        "color": "Blue"
+      },
+      {
+        "title": "Adult Discipleship",
+        "text": "Help adults grow in their faith through groups, classes, and care.",
+        "color": "Purple"
+      },
+      {
+        "title": "Missions",
+        "text": "Mobilize the church to serve locally and around the world.",
+        "color": "Aqua"
+      },
+      {
+        "title": "Worship Arts",
+        "text": "Lead worship and develop the musicians and teams behind it.",
+        "color": "Pink"
+      },
+      {
+        "title": "Communications and Creative",
+        "text": "Tell the church's story through design, video, writing, and digital media.",
+        "color": "Mint"
+      },
+      {
+        "title": "Tech and Production",
+        "text": "Run the audio, video, and lighting behind services and events.",
+        "color": "Navy"
+      },
+      {
+        "title": "Counseling and Care",
+        "text": "Walk with people toward healing. Pairs with the counseling degree tracks.",
+        "color": "Cream"
+      }
+    ]
+  },
+  "degrees": {
+    "eyebrow": "Your degree",
+    "heading": "Pick your degree path.",
+    "text": "Every degree is completed online through Crown College and is fully funded, including books and fees.",
+    "linkText": "Learn more about Crown College",
+    "link": "https://www.crown.edu/academics/omaha/",
+    "groups": [
+      {
+        "label": "Two-year residency",
+        "items": [
+          "Master of Christian Studies",
+          "Master of Ministry Leadership",
+          "Master of Arts in Pastoral Counseling (non-licensure)",
+          "Crown 30 certificate: thirty credit hours of Bible and theology, for residents without a bachelor's degree"
+        ]
+      },
+      {
+        "label": "Three-year residency",
+        "items": [
+          "Master of Arts in Counseling with state licensure"
+        ]
+      }
+    ]
+  },
+  "money": {
+    "eyebrow": "Cost and support",
+    "heading": "How the money works.",
+    "text": "Residents raise their own monthly support, and CCC matches it. Your degree is covered, and housing is available with a host family at no cost.",
+    "items": [
+      {
+        "title": "Raised support",
+        "text": "Friends, family, and churches partner with you through monthly giving."
+      },
+      {
+        "title": "Church match",
+        "text": "CCC matches the donations you raise, up to $400 a month."
+      },
+      {
+        "title": "Tuition",
+        "text": "Your Crown College degree, books, and fees are fully funded."
+      },
+      {
+        "title": "Housing",
+        "text": "Live with a CCC host family in a private room. No rent or utilities."
+      },
+      {
+        "title": "Transportation",
+        "text": "Residents provide their own vehicle and transportation."
+      }
+    ]
+  },
+  "team": {
+    "eyebrow": "Residency team",
+    "heading": "Who you'll work with.",
+    "people": [
+      {
+        "name": "Dawn Gentry",
+        "role": "Residency Director"
+      },
+      {
+        "name": "Karl Pagenkemper",
+        "role": "Residency Academic and Placement Dean"
+      },
+      {
+        "name": "Shanna Beachy",
+        "role": "Residency Recruitment Administrative Manager"
+      }
+    ]
+  }
+}

@@ -1,0 +1,554 @@
+# Pages CMS configuration for cccresidency.org
+# Staff edit at https://app.pagescms.org. Saving commits to GitHub,
+# and Netlify rebuilds and republishes the site in about a minute.
+#
+# Text fields accept **bold**, *italic*, and [link text](https://...).
+# Links can point to another page on the site, like [host families](/host-families/).
+# Resident counts, years, and "Year 1 / Year 2" labels are calculated
+# automatically from the cohorts. You never type them.
+
+settings:
+  commit:
+    identity: user   # record the staff member's name on each saved change
+
+media:
+  input: images
+  output: /images
+  rename: safe
+  extensions: [jpg, jpeg, png, webp]
+
+components:
+  color:
+    type: select
+    options:
+      values: [Blue, Orange, Magenta, Purple, Navy, Aqua, Pink, Mint, Cream]
+
+content:
+  # ---------------------------------------------------------------
+  - name: site
+    label: "1. Whole site: banner, contact, footer"
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: banner
+        label: Top banner
+        type: object
+        description: "The orange strip across the very top of every page."
+        fields:
+          - {name: show, label: Show the banner, type: boolean, description: "Turn off to hide the orange strip on every page."}
+          - {name: text, label: Banner text, type: string, description: "The sentence in the orange strip."}
+          - {name: linkText, label: Link text, type: string, description: "The underlined link at the end of the orange strip."}
+          - {name: link, label: Link, type: string, description: "Where the banner link goes, like /apply/"}
+      - {name: email, label: Email, type: string, description: "The email address in the footer Contact column."}
+      - {name: phone, label: Phone, type: string, description: "The phone number in the footer Contact column."}
+      - {name: address, label: Address, type: string, description: "The address in the footer Contact column. Opens Google Maps."}
+      - {name: instagram, label: Instagram link, type: string, description: "The Instagram link in the footer Contact column. Leave blank to hide it."}
+      - {name: footerText, label: Footer sentence, type: string, description: "The sentence under the logo in the footer."}
+
+  # ---------------------------------------------------------------
+  - name: home
+    label: "2. Home page"
+    type: file
+    path: content/home.json
+    format: json
+    fields:
+      - name: hero
+        label: Top of page
+        type: object
+        description: The cream section at the very top, next to the resident photos.
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small blue all-caps line above the big headline."}
+          - {name: heading, label: Headline, type: string, description: "The big navy headline."}
+          - {name: headingAccent, label: Headline second line, type: string, description: "The blue italic line under the headline."}
+          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline."}
+          - {name: primaryButton, label: Blue button text, type: string, description: "The solid blue button under the intro."}
+          - {name: primaryLink, label: Blue button link, type: string, description: "Where the blue button goes."}
+          - {name: secondaryButton, label: Outline button text, type: string, description: "The outlined button next to the blue one."}
+          - {name: secondaryLink, label: Outline button link, type: string, description: "Where the outlined button goes."}
+      - name: facts
+        label: Quick facts
+        type: object
+        list: {min: 2, max: 4}
+        description: "The navy strip of big numbers under the top section. The photos and the pink resident-count sticker come from the current cohorts automatically."
+        fields:
+          - {name: number, label: Big number, type: string, description: "The large number, like $0 or 28–30."}
+          - {name: unit, label: Unit, type: string, description: "The small aqua word next to the number, like years or hours."}
+          - {name: label, label: Description, type: string, description: "The short line under the number."}
+      - name: pillars
+        label: What you get
+        type: object
+        description: "The three numbered cards with colored shadows."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
+          - {name: heading, label: Heading, type: string, description: "The heading above the three cards."}
+          - name: items
+            label: Cards
+            type: object
+            description: The three cards, left to right.
+            list: {min: 3, max: 3}
+            fields:
+              - {name: title, label: Card title, type: string, description: "The bold title on the card."}
+              - {name: text, label: Card text, type: text, description: "The paragraph on the card."}
+              - {name: color, label: Shadow color, component: color, description: "The color of the number circle and the card's shadow."}
+      - name: who
+        label: Who it's for
+        type: object
+        description: "The cream section with the stage photo and blue checkmarks."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
+          - {name: heading, label: Heading, type: string, description: "The heading next to the photo."}
+          - {name: text, label: Paragraph, type: text, description: "The paragraph under the heading."}
+          - {name: points, label: Checkmark lines, type: string, list: true, description: "Each line gets a blue checkmark."}
+          - {name: note, label: Note, type: text, description: "The white box with the orange info icon under the checkmarks."}
+      - name: focus
+        label: Areas of focus
+        type: object
+        description: "The section of colored pills. The pills themselves come from the Program page's areas of focus."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
+          - {name: heading, label: Heading, type: string, description: "The heading above the colored pills."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - {name: linkText, label: Link text, type: string, description: "The blue link under the pills that goes to the Program page."}
+      - name: residents
+        label: Meet the residents
+        type: object
+        description: "The navy section of current resident photos. The people shown come from the cohorts automatically."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small aqua all-caps line above the heading."}
+          - {name: heading, label: Heading, type: string, description: "The white heading above the resident photos."}
+          - {name: linkText, label: Button text, type: string, description: "The orange button under the photos that goes to the Residents page."}
+      - name: apply
+        label: How to apply
+        type: object
+        description: "The cream section with numbered steps. The steps themselves are edited on the Apply page."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
+          - {name: heading, label: Heading, type: string, description: "The heading above the numbered steps."}
+          - {name: buttonText, label: Button text, type: string, description: "The blue button under the steps."}
+      - name: closing
+        label: Bottom of page
+        type: object
+        description: "The last section before the footer, with the tilted photo."
+        fields:
+          - {name: heading, label: Heading, type: string, description: "The big heading on the left."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - {name: primaryButton, label: Blue button text, type: string, description: "The solid blue button."}
+          - {name: primaryLink, label: Blue button link, type: string, description: "Where the blue button goes."}
+          - {name: secondaryButton, label: Outline button text, type: string, description: "The outlined button."}
+          - {name: secondaryLink, label: Outline button link, type: string, description: "Where the outlined button goes."}
+          - {name: photo, label: Photo, type: image, description: "The tilted photo on the right. Use a landscape photo under 500 KB."}
+          - {name: photoAlt, label: Photo description, type: string, description: "Not shown on the page. Describes the photo for screen readers."}
+
+  # ---------------------------------------------------------------
+  - name: program
+    label: "3. Program page"
+    type: file
+    path: content/program.json
+    format: json
+    fields:
+      - name: intro
+        label: Top of page
+        type: object
+        description: The cream section at the top with the page links.
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small blue all-caps line above the headline."}
+          - {name: heading, label: Headline, type: string, description: "The big headline."}
+          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline."}
+      - name: week
+        label: Your week
+        type: object
+        description: "The navy section with the horizontal hour bars."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small aqua all-caps line above the heading."}
+          - {name: heading, label: Heading, type: string, description: "The white heading above the bars."}
+          - name: items
+            label: Bars
+            type: object
+            description: Each bar, top to bottom.
+            list: {min: 1, max: 4}
+            fields:
+              - {name: hours, label: Hours, type: string, description: "The big number on the left of the bar, like 28–30."}
+              - {name: label, label: Label, type: string, description: "The small aqua word under the hours, like Ministry."}
+              - {name: text, label: Bar text, type: string, description: "The sentence inside the colored bar."}
+              - {name: max, label: Top of the hour range, type: number, description: "Not shown on the page. The highest number in the range. Sets how long the bar is compared to the others."}
+              - {name: color, label: Bar color, component: color, description: "The color of the bar."}
+          - {name: note, label: Note, type: text, description: "The small line under the bars."}
+      - name: development
+        label: What you'll develop
+        type: object
+        description: "The three white cards with colored tops."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
+          - {name: heading, label: Heading, type: string, description: "The heading above the cards."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - name: items
+            label: Cards
+            type: object
+            description: The three cards, left to right.
+            list: true
+            fields:
+              - {name: title, label: Card title, type: string, description: "The bold title on the card."}
+              - {name: color, label: Top color, component: color, description: "The color of the stripe across the top of the card and its dots."}
+              - {name: points, label: Bullet points, type: string, list: true, description: "Each line is a dotted bullet on the card."}
+      - name: areas
+        label: Areas of focus
+        type: object
+        description: "The grid of colored tiles. These also become the colored pills on the home page and the choices in the application and info forms."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
+          - {name: heading, label: Heading, type: string, description: "The heading above the tiles."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - name: items
+            label: Tiles
+            type: object
+            description: Each tile, in order. Add or remove tiles here.
+            list: true
+            fields:
+              - {name: title, label: Area name, type: string, description: "The bold name on the tile and the home page pill."}
+              - {name: text, label: Description, type: string, description: "The short line on the tile."}
+              - {name: color, label: Tile color, component: color, description: "The tile and pill color."}
+          - {name: note, label: Note, type: string, description: "The cream box with the orange info icon under the tiles."}
+      - name: degrees
+        label: Degree options
+        type: object
+        description: "The two white boxes listing Crown College degrees."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
+          - {name: heading, label: Heading, type: string, description: "The heading above the boxes."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - name: groups
+            label: Boxes
+            type: object
+            description: Each white box, left to right.
+            list: true
+            fields:
+              - {name: label, label: Box title, type: string, description: "The bold title at the top of the box, like Two-year residency."}
+              - {name: items, label: Degrees, type: string, list: true, description: "Each line is one degree in the box."}
+          - {name: linkText, label: Link text, type: string, description: "The blue link under the boxes."}
+          - {name: link, label: Link, type: string, description: "Where the blue link goes."}
+      - name: money
+        label: Cost and support
+        type: object
+        description: "The navy section of five small boxes."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small aqua all-caps line above the heading."}
+          - {name: heading, label: Heading, type: string, description: "The white heading above the boxes."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - name: items
+            label: Boxes
+            type: object
+            description: Each box, left to right.
+            list: true
+            fields:
+              - {name: title, label: Box title, type: string, description: "The aqua title in the box."}
+              - {name: text, label: Box text, type: text, description: "The sentence in the box."}
+      - name: team
+        label: Residency team
+        type: object
+        description: "The white cards with colored initials at the bottom of the page."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
+          - {name: heading, label: Heading, type: string, description: "The heading above the team cards."}
+          - name: people
+            label: People
+            type: object
+            description: Each team card, left to right.
+            list: true
+            fields:
+              - {name: name, label: Name, type: string, description: "The bold name on the card. The initials circle is made from it."}
+              - {name: role, label: Title, type: string, description: "The gray title under the name."}
+
+  # ---------------------------------------------------------------
+  - name: cohorts
+    label: "4. Residents: cohorts"
+    type: collection
+    path: content/cohorts
+    format: json
+    filename: "{fields.year}.json"
+    description: "One entry per cohort. Add a new entry each fall. The newest two cohorts show as current residents automatically."
+    view:
+      primary: year
+      fields: [year]
+      default: {sort: year, order: desc}
+    fields:
+      - {name: year, label: Start year, type: number, required: true, description: "The year the cohort started, like 2027. Becomes the page address /residents/2027/ and the heading."}
+      - name: people
+        label: Residents
+        type: object
+        list: true
+        description: "Each resident is a photo card. Clicking a card opens their full profile."
+        fields:
+          - {name: name, label: Name, type: string, required: true, description: "The bold name under the photo and at the top of the profile."}
+          - {name: focus, label: Ministry area, type: string, description: "The small blue all-caps line under the name."}
+          - {name: photo, label: Photo, type: image, description: "Portrait photo. A tall (4 by 5) photo under 300 KB works best."}
+          - name: crop
+            label: Photo crop
+            type: select
+            description: "Not shown on the page. Which part of the photo to keep if it gets cropped."
+            options: {values: [Top, Upper third, Center, Lower third, Bottom]}
+          - {name: hometown, label: Hometown, type: string, description: "The gray line under the ministry area, and in the profile."}
+          - {name: college, label: College and degree, type: string, description: "Shown in the profile only."}
+          - {name: calling, label: Call to ministry, type: text, description: "Shown in the profile only."}
+          - {name: food, label: Favorite food, type: string, description: "The cream box at the bottom of the profile."}
+          - {name: drink, label: Coffee order, type: string, description: "The cream box at the bottom of the profile."}
+
+  - name: residents
+    label: "5. Residents page"
+    type: file
+    path: content/residents.json
+    format: json
+    fields:
+      - name: intro
+        label: Top of page
+        type: object
+        description: The cream section at the top of the Residents page.
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small blue all-caps line above the headline."}
+          - {name: heading, label: Headline, type: string, description: "The big headline."}
+          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline. {residents}, {cohorts}, and {first} fill in automatically with the resident count, cohort count, and first year."}
+      - name: current
+        label: Current residents
+        type: object
+        description: Not shown on the page.
+        fields:
+          - {name: heading, label: Heading, type: string, description: "Not shown on the page. Read aloud by screen readers before the current cohorts."}
+      - name: past
+        label: Past cohorts
+        type: object
+        description: "The cream section of year cards with small photos."
+        fields:
+          - {name: heading, label: Heading, type: string, description: "The heading above the year cards."}
+          - {name: text, label: Paragraph, type: string, description: "The line under the heading."}
+      - name: labels
+        label: Profile labels
+        type: object
+        description: "The small pink all-caps labels inside a resident's profile."
+        fields:
+          - {name: hometown, label: Hometown label, type: string, description: "Label above the hometown."}
+          - {name: college, label: College label, type: string, description: "Label above the college and degree."}
+          - {name: calling, label: Calling label, type: string, description: "Label above the call to ministry."}
+          - {name: food, label: Food label, type: string, description: "Label in the left cream box."}
+          - {name: drink, label: Coffee label, type: string, description: "Label in the right cream box."}
+
+  # ---------------------------------------------------------------
+  - name: host
+    label: "6. Host a Resident page"
+    type: file
+    path: content/host.json
+    format: json
+    fields:
+      - name: intro
+        label: Top of page
+        type: object
+        description: The cream section at the top, next to the tilted photo.
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small blue all-caps line above the headline."}
+          - {name: heading, label: Headline, type: string, description: "The big headline."}
+          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline."}
+          - {name: buttonText, label: Button text, type: string, description: "The blue button under the paragraph."}
+          - {name: link, label: Button link, type: string, description: "Where the blue button goes. Currently the Church Center host family form."}
+          - {name: photo, label: Photo, type: image, description: "The tilted photo on the right. Use a landscape photo under 500 KB."}
+          - {name: photoAlt, label: Photo description, type: string, description: "Not shown on the page. Describes the photo for screen readers."}
+      - name: stability
+        label: Why one to three years
+        type: object
+        description: "The white section next to the first video."
+        fields:
+          - {name: heading, label: Heading, type: string, description: "The heading on the left."}
+          - {name: text, label: Paragraph, type: text, description: "The paragraph under the heading."}
+      - name: video
+        label: Videos
+        type: object
+        description: "The first video sits next to Why one to three years. The second gets its own section lower on the page."
+        fields:
+          - {name: heading, label: Second video heading, type: string, description: "The heading next to the second video."}
+          - {name: text, label: Second video paragraph, type: string, description: "The line under that heading."}
+          - name: items
+            label: Videos
+            type: object
+            description: The first video is next to Why one to three years. The second sits lower on the page.
+            list: {max: 2}
+            fields:
+              - {name: title, label: Caption, type: string, description: "The bold line under the video."}
+              - {name: link, label: Vimeo link, type: string, description: "Paste the Vimeo link. Private links with a code at the end work too."}
+              - {name: poster, label: Cover image, type: image, description: "The still image shown before someone presses play. 16 by 9."}
+      - name: hosts
+        label: What we ask of hosts
+        type: object
+        description: "The cream section of white cards with colored left edges."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
+          - {name: heading, label: Heading, type: string, description: "The heading above the cards."}
+          - name: items
+            label: Cards
+            type: object
+            description: Each white card, in order.
+            list: true
+            fields:
+              - {name: title, label: Card title, type: string, description: "The bold title on the card."}
+              - {name: text, label: Card text, type: text, description: "The paragraph on the card."}
+      - name: residents
+        label: What residents commit to
+        type: object
+        description: "The left list with orange circles."
+        fields:
+          - {name: heading, label: Heading, type: string, description: "The heading above the orange list."}
+          - {name: points, label: List, type: string, list: true, description: "Each line gets an orange circle."}
+      - name: staff
+        label: How the team supports hosts
+        type: object
+        description: "The right list with blue circles."
+        fields:
+          - {name: heading, label: Heading, type: string, description: "The heading above the blue list."}
+          - {name: points, label: List, type: string, list: true, description: "Each line gets a blue circle."}
+      - name: steps
+        label: Next steps
+        type: object
+        description: "The cream section of numbered step cards."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
+          - {name: heading, label: Heading, type: string, description: "The heading above the steps."}
+          - name: items
+            label: Steps
+            type: object
+            description: Each numbered step card, left to right.
+            list: true
+            fields:
+              - {name: title, label: Step title, type: string, description: "The bold title on the step card. Numbers are added automatically."}
+              - {name: text, label: Step text, type: text, description: "The paragraph on the step card."}
+              - {name: buttonText, label: Button text, type: string, description: "The small outlined button at the bottom of the card. Leave blank for no button."}
+              - {name: link, label: Button link, type: string, description: "Where the button goes. A PDF link downloads the file."}
+          - {name: note, label: Note, type: text, description: "The white box with the orange info icon under the steps."}
+      - name: support
+        label: Support a resident
+        type: object
+        description: "The blue box at the bottom of the page."
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small navy all-caps line in the blue box."}
+          - {name: heading, label: Heading, type: string, description: "The white heading in the blue box."}
+          - {name: text, label: Paragraph, type: text, description: "The paragraph in the blue box."}
+          - {name: buttonText, label: Button text, type: string, description: "The navy button in the blue box."}
+          - {name: link, label: Button link, type: string, description: "Where the button goes. Currently Church Center giving."}
+
+  # ---------------------------------------------------------------
+  - name: apply
+    label: "7. Apply page"
+    type: file
+    path: content/apply.json
+    format: json
+    fields:
+      - name: intro
+        label: Top of page
+        type: object
+        description: The cream section at the top with the page links.
+        fields:
+          - {name: eyebrow, label: Small label, type: string, description: "The small blue all-caps line above the headline."}
+          - {name: heading, label: Headline, type: string, description: "The big headline."}
+          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline."}
+      - name: steps
+        label: Steps
+        type: object
+        list: true
+        description: "The numbered step cards. Also shown on the home page."
+        fields:
+          - {name: title, label: Step title, type: string, description: "The bold title on the step card."}
+          - {name: text, label: Step text, type: text, description: "The paragraph on the step card."}
+          - {name: buttonText, label: Button text, type: string, description: "The button or link at the bottom of the card. Leave blank for none."}
+          - {name: file, label: Button link or file, type: string, description: "A file like /files/CCC-Residency-Application-Questionnaire.docx downloads. #application jumps to the form."}
+      - name: fit
+        label: Is this a fit
+        type: object
+        description: "The navy box beside the application form."
+        fields:
+          - {name: heading, label: Heading, type: string, description: "The white heading in the navy box."}
+          - {name: points, label: Checkmark lines, type: string, list: true, description: "Each line gets an aqua checkmark."}
+      - name: application
+        label: Application form
+        type: object
+        description: "The large form. Submissions are emailed by Netlify."
+        fields:
+          - {name: heading, label: Heading, type: string, description: "The heading above the form."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - {name: education, label: Education choices, type: string, list: true, description: "The choices in the Highest level of education dropdown."}
+          - {name: success, label: Thank-you message, type: string, description: "The green message that replaces the form after someone submits."}
+      - name: info
+        label: Get more info form
+        type: object
+        description: "The left form in the cream section."
+        fields:
+          - {name: heading, label: Heading, type: string, description: "The heading above the form."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - {name: success, label: Thank-you message, type: string, description: "The green message that replaces the form after someone submits."}
+      - name: contact
+        label: Question form
+        type: object
+        description: "The right form in the cream section."
+        fields:
+          - {name: heading, label: Heading, type: string, description: "The heading above the form."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - {name: success, label: Thank-you message, type: string, description: "The green message that replaces the form after someone submits."}
+      - name: faq
+        label: FAQ
+        type: object
+        description: "The question list at the bottom of the page."
+        fields:
+          - {name: heading, label: Heading, type: string, description: "The heading above the questions."}
+          - name: items
+            label: Questions
+            type: object
+            description: Each question, top to bottom.
+            list: true
+            fields:
+              - {name: q, label: Question, type: string, description: "The bold question you click to open."}
+              - {name: a, label: Answer, type: text, description: "The answer that appears when the question is opened."}
+
+  # ---------------------------------------------------------------
+  - name: seo
+    label: "8. Search and sharing"
+    type: file
+    path: content/seo.json
+    format: json
+    fields:
+      - {name: siteName, label: Site name, type: string, description: "Not shown on the page. The site name used when a link is shared."}
+      - {name: shareImage, label: Share image, type: image, description: "Not shown on the page. The picture shown when a link is shared on social media or in a text. 1200 by 630."}
+      - name: pages
+        label: Pages
+        type: object
+        description: "Not shown on the page. The title in the browser tab and Google results, and the description under it."
+        fields:
+          - name: home
+            label: Home
+            type: object
+            description: Not shown on the page.
+            fields:
+              - {name: title, label: Title, type: string, description: "Browser tab and Google title for the home page."}
+              - {name: description, label: Description, type: text, description: "Google and sharing description for the home page."}
+          - name: program
+            label: Program
+            type: object
+            description: Not shown on the page.
+            fields:
+              - {name: title, label: Title, type: string, description: "Browser tab and Google title for the Program page."}
+              - {name: description, label: Description, type: text, description: "Google and sharing description for the Program page."}
+          - name: residents
+            label: Residents
+            type: object
+            description: Not shown on the page.
+            fields:
+              - {name: title, label: Title, type: string, description: "Browser tab and Google title for the Residents page."}
+              - {name: description, label: Description, type: text, description: "Google and sharing description for the Residents page."}
+          - name: host
+            label: Host a Resident
+            type: object
+            description: Not shown on the page.
+            fields:
+              - {name: title, label: Title, type: string, description: "Browser tab and Google title for the Host a Resident page."}
+              - {name: description, label: Description, type: text, description: "Google and sharing description for the Host a Resident page."}
+          - name: apply
+            label: Apply
+            type: object
+            description: Not shown on the page.
+            fields:
+              - {name: title, label: Title, type: string, description: "Browser tab and Google title for the Apply page."}
+              - {name: description, label: Description, type: text, description: "Google and sharing description for the Apply page."}

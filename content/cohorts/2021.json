@@ -1,0 +1,71 @@
+{
+  "year": 2021,
+  "people": [
+    {
+      "name": "Adè Idowu",
+      "focus": "College Ministry",
+      "photo": "/images/residents/2021-ade-idowu.jpg",
+      "crop": "Center",
+      "hometown": "Conyers, Georgia",
+      "college": "Toccoa Falls College; Bachelor of Arts in Ministry and Leadership",
+      "calling": "When the Lord revealed to me my identity in him, I was convinced that every person should know that same truth. From there, a desire for ministry in any context became a flame inside of my heart.",
+      "food": "Steak",
+      "drink": "Grande Cold Brew with honey"
+    },
+    {
+      "name": "Cameron Booze",
+      "focus": "Missions",
+      "photo": "/images/residents/2021-cameron-booze.jpg",
+      "crop": "Center",
+      "hometown": "Kent Island, Maryland",
+      "college": "Toccoa Falls College; Cross-Cultural Studies",
+      "calling": "During my senior year of high school, I went to Honduras on a short-term trip and saw real poverty for the first time. I sensed the Lord moving my heart and inviting me to go to unreached places to share his love and the news of his salvation.",
+      "food": "Anything I cook with friends (especially international food)",
+      "drink": "Herbal tea blends and chai"
+    },
+    {
+      "name": "Dani Gabel",
+      "focus": "Communications",
+      "photo": "/images/residents/2021-dani-gabel.jpg",
+      "crop": "Center",
+      "hometown": "Waconia, Minnesota",
+      "college": "Crown College; Bachelor of Arts in Communication with a triple concentration in Advertising/Graphic Design, Digital Arts, and Relational Communication and a double minor in Video & Film Production and Christian Studies",
+      "calling": "Growing up, I always looked up to the staff in my home church, loving that they got to work alongside other believers, and that in each of their jobs, though all very different from one another, they got to share God’s love using their specific gifts. The summer between my sophomore and junior year in college, I was given the opportunity to intern on a church's communication team, and that was when I knew that I wanted to use my gifts in design and communication to bring others closer to Jesus.",
+      "food": "Shrimp",
+      "drink": "Iced Cinnamon Dolce Latte with blonde espresso and almond milk"
+    },
+    {
+      "name": "Matt Bratton",
+      "focus": "High School Ministry",
+      "photo": "/images/residents/2021-matt-bratton.jpg",
+      "crop": "Center",
+      "hometown": "Murrysville, PA",
+      "college": "Crown College; Bachelor of Science in Youth & Family Ministry",
+      "calling": "I was learning and growing in my faith in my teen years and clearly felt God",
+      "food": "Burgers",
+      "drink": "Iced Mocha"
+    },
+    {
+      "name": "Meredith Cowman",
+      "focus": "Kids Ministry",
+      "photo": "/images/residents/2021-meredith-cowman.jpg",
+      "crop": "Center",
+      "hometown": "Quincy, Illinois",
+      "college": "Grace College; Bachelor of Science in Counseling",
+      "calling": "My whole life, the Lord has been using the local church to deeply shape me and mold me to become more like Jesus. The Lord has done the most transformative work in me through discipleship and people willing to pursue me. I believe the Lord has called me to this very same thing, to bring up young leaders as pursuers of Christ and people.",
+      "food": "Donuts",
+      "drink": "Iced coffee with white mocha syrup and half & half"
+    },
+    {
+      "name": "Paul Gabel",
+      "focus": "Communications",
+      "photo": "/images/residents/2021-paul-gabel.jpg",
+      "crop": "Center",
+      "hometown": "Watertown, South Dakota",
+      "college": "Crown College; Bachelor of Arts in Advertising and Graphic Design/Communications",
+      "calling": "I was saved at a young",
+      "food": "I don’t even know…",
+      "drink": "Iced Caramel Macchiato (yes, I enjoy the frou-frou)"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "hero": {
+    "eyebrow": "Christ Community Church, Omaha",
+    "heading": "Your degree is done.",
+    "headingAccent": "Your calling is just getting started.",
+    "text": "CCC Church Residency is a two-year, hands-on ministry program for recent grads and early career adults. Serve on a church staff team, get mentored by people who do this every day, and earn a **fully funded master's degree** from Crown College along the way.",
+    "primaryButton": "Apply now",
+    "primaryLink": "/apply/",
+    "secondaryButton": "How it works",
+    "secondaryLink": "/program/"
+  },
+  "facts": [
+    {
+      "number": "2",
+      "unit": "years",
+      "label": "On staff at Christ Community Church in Omaha"
+    },
+    {
+      "number": "$0",
+      "unit": "tuition",
+      "label": "For your master's degree, including books and fees"
+    },
+    {
+      "number": "28–30",
+      "unit": "hours",
+      "label": "Of hands-on ministry every week"
+    },
+    {
+      "number": "$400",
+      "unit": "a month",
+      "label": "Church match on the support you raise"
+    }
+  ],
+  "pillars": {
+    "eyebrow": "What you get",
+    "heading": "Three things at once.",
+    "items": [
+      {
+        "title": "Real ministry reps",
+        "text": "Serve 28–30 hours a week on a CCC ministry team in your area of focus. Teach, lead, plan, recruit volunteers, and do the work you'll do for the rest of your career.",
+        "color": "Blue"
+      },
+      {
+        "title": "A master's, paid for",
+        "text": "Earn your graduate degree online through Crown College while you serve. Tuition, books, and fees are covered.",
+        "color": "Orange"
+      },
+      {
+        "title": "A cohort and a mentor",
+        "text": "Grow alongside a cohort of residents in weekly leadership development, and work with a mentor who knows your ministry area.",
+        "color": "Magenta"
+      }
+    ]
+  },
+  "who": {
+    "eyebrow": "Who it's for",
+    "heading": "Built for the step after graduation.",
+    "text": "This residency is for recent grads and early career adults who are exploring vocational ministry and want clarity, experience, and personal growth before choosing a long-term path.",
+    "points": [
+      "You sense a call to ministry and want to test it in real life",
+      "You want a master's degree without the debt",
+      "You want people investing in you, not just a job description"
+    ],
+    "note": "No bachelor's degree yet? You can still apply. Residents without a college degree complete thirty credit hours of Bible and theology through Crown College."
+  },
+  "focus": {
+    "eyebrow": "Areas of focus",
+    "heading": "Choose your ministry area.",
+    "text": "Every resident trains inside a primary ministry area that fits their calling, gifts, and passions.",
+    "linkText": "See every area"
+  },
+  "residents": {
+    "eyebrow": "Meet the residents",
+    "heading": "Serving at CCC right now.",
+    "linkText": "Meet every cohort"
+  },
+  "apply": {
+    "eyebrow": "How to apply",
+    "heading": "Applying takes two steps.",
+    "buttonText": "Start your application"
+  },
+  "closing": {
+    "heading": "Ready to find out if this is your next step?",
+    "text": "Apply now, or send us your info and we'll follow up with everything you need to know.",
+    "primaryButton": "Apply now",
+    "primaryLink": "/apply/",
+    "secondaryButton": "Get more info",
+    "secondaryLink": "/apply/#info",
+    "photo": "/images/site/community.jpg",
+    "photoAlt": "Two people laughing together at an outdoor CCC gathering"
+  }
+}

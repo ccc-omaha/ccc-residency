@@ -1,0 +1,21 @@
+{
+  "intro": {
+    "eyebrow": "Residents",
+    "heading": "Meet the residents.",
+    "text": "Since {first}, {residents} residents have trained at CCC across {cohorts} cohorts. Here's who is serving now, and everyone who came before."
+  },
+  "current": {
+    "heading": "Serving now"
+  },
+  "past": {
+    "heading": "Past cohorts",
+    "text": "Pick a year to meet the cohort."
+  },
+  "labels": {
+    "hometown": "Hometown",
+    "college": "College and degree",
+    "calling": "Call to ministry",
+    "food": "Favorite food",
+    "drink": "Coffee order"
+  }
+}

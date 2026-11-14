@@ -1,0 +1,49 @@
+{
+  "year": 2025,
+  "people": [
+    {
+      "name": "Bryce Ginsburg",
+      "focus": "Adult Ministry",
+      "photo": "/images/residents/2025-bryce-ginsburg.jpg",
+      "crop": "Center",
+      "hometown": "Wheatridge, Colorado",
+      "college": "Toccoa Falls College; Bachelor of Science in Nursing with a minor in Biblical Studies",
+      "calling": "I have felt called to international ministry ever since I was saved. It has been a long road of the Lord’s design and timing, and he has opened this opportunity at the CCC Residency for my wife and me to be trained, discipled, and more practically prepared for international missions. I am beyond thrilled to learn, grow, and be challenged.",
+      "food": "Thai Red Pineapple Curry; Lamb Kabobs; Steak",
+      "drink": "Mocha w/extra shot or Dirty Chai w/extra shot"
+    },
+    {
+      "name": "Olivia Klaksvik",
+      "focus": "Middle School Ministry",
+      "photo": "/images/residents/2025-olivia-klaksvik.jpg",
+      "crop": "Center",
+      "hometown": "Fergus Falls, Minnesota",
+      "college": "Crown College; Bachelor of Arts in Psychology with a double minor in Counseling and Biblical & Theological Studies",
+      "calling": "I have felt the Lord's",
+      "food": "Sushi",
+      "drink": "Iced Vanilla Latte"
+    },
+    {
+      "name": "Kat Ginsburg",
+      "focus": "Missions",
+      "photo": "/images/residents/2025-kat-ginsburg.jpg",
+      "crop": "Center",
+      "hometown": "Cumming, Georgia",
+      "college": "Toccoa Falls College; Major in Counseling/Psychology with minors in Cross-Cultural Studies and Biblical Studies, as well as a Graduate Certificate in Trauma Therapy",
+      "calling": "My husband and I joined the CCC Residency as a pivotal step towards becoming International Workers with the C&MA. I am eager to learn, grow, and experience ministry in an everyday context as I prepare for overseas ministry.",
+      "food": "Pretty much any breakfast food",
+      "drink": "Iced Lavender Latte with Oat Milk"
+    },
+    {
+      "name": "Josiah Vang",
+      "focus": "High School Ministry",
+      "photo": "/images/residents/2025-josiah-vang.jpg",
+      "crop": "Center",
+      "hometown": "Shoreview, Minnesota",
+      "college": "Crown College, Christian Studies",
+      "calling": "I felt the",
+      "food": "Baby Back Ribs",
+      "drink": "I do not like coffee, but I enjoy White Cherry Gatorade"
+    }
+  ]
+}

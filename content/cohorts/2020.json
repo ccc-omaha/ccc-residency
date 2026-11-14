@@ -1,0 +1,82 @@
+{
+  "year": 2020,
+  "people": [
+    {
+      "name": "Mary Claire Johnson",
+      "focus": "",
+      "photo": "/images/residents/2020-mary-claire-johnson.jpg",
+      "crop": "Center",
+      "hometown": "Lincoln, NE and Dallas, TX",
+      "college": "University of Nebraska–Lincoln; Leadership",
+      "calling": "I was a nursing student feeling unsatisfied with my future career. I knew I had a passion to care for others and it was through varying mentorship/discipleship opportunities in college that I recognized my passion of long-term development and healing in both myself and others!",
+      "food": "Chick-fil-A!!!",
+      "drink": "Decaf White Mocha"
+    },
+    {
+      "name": "Matt Cluraghty",
+      "focus": "",
+      "photo": "/images/residents/2020-matt-cluraghty.jpg",
+      "crop": "Center",
+      "hometown": "Milaca, MN",
+      "college": "Moody Bible Institute; Bachelor of Science in Ministry with Leadership Emphasis",
+      "calling": "Since God brought me into relationship with himself my senior year of high school, he has placed a deep passion in my heart for the lost. God proved that he would equip me for whatever he would call me for, and in my case that was full-time ministry. My passion is to be used by God to draw people close to Jesus.",
+      "food": "A rare steak",
+      "drink": "Hot White Mocha"
+    },
+    {
+      "name": "Isaiah Lackey",
+      "focus": "",
+      "photo": "/images/residents/2020-isaiah-lackey.jpg",
+      "crop": "Center",
+      "hometown": "Roanoke, Virginia",
+      "college": "Toccoa Falls College; Cross-Cultural Studies & Bible and Theology.",
+      "calling": "My",
+      "food": "Any kind of Asian food, or Chick-fil-A.",
+      "drink": "Mocha, Caramel Macchiato, or just a plain black cup of coffee."
+    },
+    {
+      "name": "Caitlin Bliss (Fettig)",
+      "focus": "",
+      "photo": "/images/residents/2020-caitlin-bliss.jpg",
+      "crop": "Center",
+      "hometown": "Portland, OR",
+      "college": "Social Work; George Fox University",
+      "calling": "My",
+      "food": "Cereal… just any and ALL of the cereal.",
+      "drink": "Matcha Latte"
+    },
+    {
+      "name": "Lottie Lackey (Ellis)",
+      "focus": "",
+      "photo": "/images/residents/2020-lottie-lackey.jpg",
+      "crop": "Center",
+      "hometown": "Columbia Falls, MT",
+      "college": "Crown College; Youth & Family Ministry and Christian Studies",
+      "calling": "God is continually revealing to me the beauty of himself, and the beauty in those around me. I feel called to empower people, through the love of Jesus, to share their stories and pursue him with their whole lives.",
+      "food": "Fried Chicken",
+      "drink": "The caffeinated kind"
+    },
+    {
+      "name": "Matt Johnson",
+      "focus": "",
+      "photo": "/images/residents/2020-matt-johnson.jpg",
+      "crop": "Center",
+      "hometown": "Lutz, Florida",
+      "college": "Florida Southern College; BA in Religion",
+      "calling": "My",
+      "food": "Meatloaf or Tuna Casserole",
+      "drink": "Salted Caramel Crunch Frappuccino"
+    },
+    {
+      "name": "Seth Renicks",
+      "focus": "",
+      "photo": "/images/residents/2020-seth-renicks.jpg",
+      "crop": "Center",
+      "hometown": "Grove City, PA",
+      "college": "Toccoa Falls College; B.S. in Ministry and Leadership",
+      "calling": "Right now I’m called to be in the Residency program and learn as much as I can to be ready for where the Lord has me next!",
+      "food": "Steak 🥩",
+      "drink": "Pineapple Matcha Latte"
+    }
+  ]
+}

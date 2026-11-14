@@ -1,0 +1,71 @@
+{
+  "year": 2023,
+  "people": [
+    {
+      "name": "Maisen Sturt",
+      "focus": "Missions",
+      "photo": "/images/residents/2023-maisen-sturt.jpg",
+      "crop": "Center",
+      "hometown": "Toledo, OH & Rowlett, TX",
+      "college": "Toccoa Falls College; major in Cross-Cultural Studies and minor in Bible & Theology",
+      "calling": "Ministry has always been a part of my life; it seems this is where God has me for now. He has called me to follow him and love people along the way.",
+      "food": "Chili",
+      "drink": "Caramel Frappuccino®"
+    },
+    {
+      "name": "Danté Edwards",
+      "focus": "Local Missions",
+      "photo": "/images/residents/2023-dante-edwards.jpg",
+      "crop": "Center",
+      "hometown": "Duluth, GA",
+      "college": "Toccoa Falls College; Ministry Leadership",
+      "calling": "I want to partner with the Holy Spirit in equipping the Church to love its congregants of color.",
+      "food": "Oxtail stew with rice and peas",
+      "drink": "Cinnamon Hot Chocolate"
+    },
+    {
+      "name": "Morgan Harthoorn",
+      "focus": "Evangelism & Spiritual Discovery",
+      "photo": "/images/residents/2023-morgan-harthoorn.jpg",
+      "crop": "Center",
+      "hometown": "Ponca, NE",
+      "college": "South Dakota State University; major in Exercise Science and minor in Psychology",
+      "calling": "I was involved in the Navigators’ campus ministry leadership team throughout college, where my passion for reaching the lost and equipping other believers grew. I desired to devote my whole life to helping others encounter Jesus, and God soon switched my path from pursuing a health science career to ministry.",
+      "food": "Falafel",
+      "drink": "Iced oatmilk shaken espresso"
+    },
+    {
+      "name": "Eugene Lu",
+      "focus": "College",
+      "photo": "/images/residents/2023-eugene-lu.jpg",
+      "crop": "Center",
+      "hometown": "Omaha, NE",
+      "college": "University of Nebraska Omaha; Neuroscience",
+      "calling": "I loved doing outreach and spreading the gospel during college and wanted to keep that going!",
+      "food": "Scallion pancakes",
+      "drink": "I don’t drink coffee."
+    },
+    {
+      "name": "Caroline Lake",
+      "focus": "College",
+      "photo": "/images/residents/2023-caroline-lake.jpg",
+      "crop": "Center",
+      "hometown": "Olathe, KS",
+      "college": "Kansas State University; Bachelor of Arts in Communication Studies with concentrations in Identity Formation and Coaching & Consulting",
+      "calling": "At church camp the summer after I graduated high school, I got a word from the Lord telling me to “go” and live my life on mission for him and his Kingdom. That moment lit a flame in my spirit to share Jesus’ love and healing power everywhere I go.",
+      "food": "Alfredo pasta",
+      "drink": "Iced caramel latte with oatmilk"
+    },
+    {
+      "name": "Ethan Arnold",
+      "focus": "High School",
+      "photo": "/images/residents/2023-ethan-arnold.jpg",
+      "crop": "Center",
+      "hometown": "Omaha, NE",
+      "college": "Crown College, Pastoral Leadership",
+      "calling": "I have wanted to live my life for Christ since I was fifteen. I want to help others see how Christ gives purpose and joy that the world can't provide.",
+      "food": "Prime rib",
+      "drink": "Smoothie"
+    }
+  ]
+}

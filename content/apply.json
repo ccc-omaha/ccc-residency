@@ -1,0 +1,95 @@
+{
+  "intro": {
+    "eyebrow": "Apply",
+    "heading": "Apply to CCC Church Residency.",
+    "text": "Applying is a simple two-step process. Once we have both pieces, a member of our residency leadership team will be in touch within a few business days about next steps."
+  },
+  "fit": {
+    "heading": "Is this a fit?",
+    "points": [
+      "You sense a call to explore vocational ministry",
+      "You have a bachelor's degree, or you want to complete thirty credit hours of Bible and theology through Crown College",
+      "You can commit to two years in Omaha (three on the counseling licensure track)",
+      "You have your own vehicle and transportation"
+    ]
+  },
+  "steps": [
+    {
+      "title": "Complete the questionnaire",
+      "text": "Download the Word document and answer each question in about 3–5 sentences. Save it with your name in the file name.",
+      "buttonText": "Download questionnaire",
+      "file": "/files/CCC-Residency-Application-Questionnaire.docx"
+    },
+    {
+      "title": "Submit the application",
+      "text": "Fill out the application below and upload your completed questionnaire.",
+      "buttonText": "Go to the application",
+      "file": "#application"
+    },
+    {
+      "title": "Hear from us",
+      "text": "A member of our residency leadership team will reach out within a few business days about next steps.",
+      "buttonText": "",
+      "file": ""
+    }
+  ],
+  "application": {
+    "heading": "Application",
+    "text": "All fields marked with an asterisk are required. Files must be Word or PDF, under 8 MB total.",
+    "education": [
+      "High school diploma",
+      "Some college",
+      "Associate degree",
+      "Bachelor's degree",
+      "Master's degree or higher"
+    ],
+    "success": "Thanks! Your application is in. We'll be in touch within a few business days."
+  },
+  "info": {
+    "heading": "Not ready to apply?",
+    "text": "Tell us a little about yourself and we'll send you more information about the residency.",
+    "success": "Thanks! We'll be in touch soon."
+  },
+  "contact": {
+    "heading": "Have a question?",
+    "text": "Send us a note and we'll get back to you as soon as we can.",
+    "success": "Thanks! Your message is on its way. We'll get back to you soon."
+  },
+  "faq": {
+    "heading": "Frequently asked questions",
+    "items": [
+      {
+        "q": "How long is the residency?",
+        "a": "Two years. Residents on the Master of Arts in Counseling with state licensure track serve three years."
+      },
+      {
+        "q": "Is the residency paid?",
+        "a": "Residents raise their own monthly financial support, and CCC matches donations up to $400 a month per resident."
+      },
+      {
+        "q": "What does the master's degree cost?",
+        "a": "Nothing. Your degree through Crown College is fully funded, including books and fees."
+      },
+      {
+        "q": "Is the degree online?",
+        "a": "Yes. Coursework through Crown College is online, so you can complete it alongside your ministry work. Plan on 12–18 hours a week."
+      },
+      {
+        "q": "Where will I live?",
+        "a": "You can live with a CCC host family in a private room, with no rent or utilities. [Learn about host families](/host-families/)."
+      },
+      {
+        "q": "Do I need a college degree?",
+        "a": "No. Residents without a bachelor's degree complete the Crown 30 certificate, thirty credit hours of Bible and theology."
+      },
+      {
+        "q": "Can I choose my ministry area?",
+        "a": "Yes. You'll choose a primary area of focus and work with a mentor in that area. [See the areas of focus](/program/#areas)."
+      },
+      {
+        "q": "Do I need a car?",
+        "a": "Yes. Residents provide their own vehicle and transportation."
+      }
+    ]
+  }
+}

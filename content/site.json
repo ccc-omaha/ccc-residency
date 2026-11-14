@@ -1,0 +1,13 @@
+{
+  "banner": {
+    "show": true,
+    "text": "Now accepting applications for the next cohort.",
+    "linkText": "Apply now",
+    "link": "/apply/"
+  },
+  "email": "residency@cccomaha.org",
+  "phone": "402-330-3360",
+  "address": "404 South 108th Avenue, Omaha, NE 68154",
+  "instagram": "https://www.instagram.com/cccomaresidency",
+  "footerText": "CCC Church Residency is a ministry of [Christ Community Church](https://cccomaha.org) in Omaha, Nebraska."
+}

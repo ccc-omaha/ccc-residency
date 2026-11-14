@@ -1,0 +1,71 @@
+{
+  "year": 2024,
+  "people": [
+    {
+      "name": "Ethan Marco",
+      "focus": "College Ministry",
+      "photo": "/images/residents/2024-ethan-marco.jpg",
+      "crop": "Center",
+      "hometown": "Omaha, NE",
+      "college": "University of Nebraska Omaha; Neuroscience",
+      "calling": "From the moment I was saved, God placed on my heart a prompting to share the same love that I was shown by him and the people he had placed in my life with others. This grew into a passion for evangelism and discipleship, and thus, through a lot of prayer, I began to take steps towards a lifetime of ministry, by which I can help others encounter the love of Jesus Christ.",
+      "food": "Any and all seafood",
+      "drink": "A London Fog or just plain black coffee"
+    },
+    {
+      "name": "Marcus Perrotto",
+      "focus": "Spiritual Discovery & Young Adults",
+      "photo": "/images/residents/2024-marcus-perrotto.jpg",
+      "crop": "Center",
+      "hometown": "Fort Lauderdale, FL",
+      "college": "Toccoa Falls College; Global Engagement",
+      "calling": "God has given me a passion for serving those from other cultures who have not heard the true gospel.",
+      "food": "Thanksgiving turkey with stuffing and gravy",
+      "drink": "Hot chai latte with a shot of espresso"
+    },
+    {
+      "name": "Nema Mijak",
+      "focus": "Spiritual Discovery & Young Adults",
+      "photo": "/images/residents/2024-nema-mijak.jpg",
+      "crop": "Center",
+      "hometown": "Omaha, NE",
+      "college": "University of Nebraska Omaha; Science",
+      "calling": "Ministry has always been part of my life. I am joining God where he is at work to serve his people.",
+      "food": "I don’t have a favorite! I’m okay with anything!",
+      "drink": "Mango Dragonfruit Refresher"
+    },
+    {
+      "name": "Katheryn Winn",
+      "focus": "Worship Arts",
+      "photo": "/images/residents/2024-katheryn-winn.jpg",
+      "crop": "Center",
+      "hometown": "Massillon, Ohio",
+      "college": "Crown College; Psychology",
+      "calling": "Worship, music, and the arts have always been a part of my life, and the Lord has invited me to surrender my gifts to be used by him in whatever ways he wants. I also have a call to partner with the Holy Spirit in his work of healing people in the field of counseling.",
+      "food": "Texas Roadhouse Rolls",
+      "drink": "Vanilla Sweet Cream Cold Brew"
+    },
+    {
+      "name": "Betsy Wood",
+      "focus": "College Ministry",
+      "photo": "/images/residents/2024-betsy-wood.jpg",
+      "crop": "Center",
+      "hometown": "Blair, NE",
+      "college": "",
+      "calling": "I came to know Christ just a few years ago, and since then, he has put it on my heart to share his love to others through full-time ministry.",
+      "food": "Anything Mexican",
+      "drink": "Iced Caramel Macchiato"
+    },
+    {
+      "name": "Joe Wright",
+      "focus": "High School Ministry",
+      "photo": "/images/residents/2024-joe-wright.jpg",
+      "crop": "Center",
+      "hometown": "Omaha, NE",
+      "college": "Crown College; Youth & Social Ministry",
+      "calling": "The next generation is such an important asset to the life of a church. I want to be able to help raise the next generation of church leaders and point them to Christ.",
+      "food": "Pan-seared salmon",
+      "drink": "Iced Caramel Macchiato"
+    }
+  ]
+}

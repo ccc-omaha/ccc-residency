@@ -1,0 +1,71 @@
+{
+  "year": 2022,
+  "people": [
+    {
+      "name": "Megan Elford",
+      "focus": "Worship",
+      "photo": "/images/residents/2022-megan-elford.jpg",
+      "crop": "Center",
+      "hometown": "Fond du Lac, Wisconsin",
+      "college": "Luther College; Bachelor of Arts in Vocal Performance",
+      "calling": "My sophomore year of college, I attended a church service where the female worship leader was ordained as the pastor of worship and connections. I could see myself in her shoes. It was then that I felt the Lord leading me towards worship ministry. I love getting to use the musical gifts that he has given me to serve his church.",
+      "food": "Cheeseburgers",
+      "drink": "Water"
+    },
+    {
+      "name": "Alex Sigerson",
+      "focus": "Missions",
+      "photo": "/images/residents/2022-alex-sigerson.jpg",
+      "crop": "Center",
+      "hometown": "Omaha, Nebraska",
+      "college": "Crown College; Bachelor of Science in Global and Cultural Studies",
+      "calling": "I grew up at CCC and missions has been a huge part of my life. In the past God has really brought out qualities in me through missions. The most enjoyable thing I like to do is to sit down with international people and tell them about the gospel, the Bible, and Christianity.",
+      "food": "Salmon",
+      "drink": "White Chocolate Mocha Frappuccino"
+    },
+    {
+      "name": "Cristina Vasquez",
+      "focus": "Kids Ministry",
+      "photo": "/images/residents/2022-cristina-vasquez.jpg",
+      "crop": "Center",
+      "hometown": "Anderson, Missouri",
+      "college": "Ozark Christian College; Bachelor of Christian Formation",
+      "calling": "After years of living for my own desires, our Lord drew me to himself and called me to make a drastic change. On a trip to Children’s Mercy in Kansas City, I was prompted into a chapel and felt the Holy Spirit impress upon me that I needed to make a decision. I had a series of visceral dreams that evening that led me to surrender my whole self to our Lord God and follow in the way of Jesus Christ. I was baptized a week later. Two weeks later, I was prompted to drive onto the campus of Ozark Christian College. Over the course of the first semester, he affirmed that serving him and my fellow brothers and sisters in Christ was exactly what I needed to do.",
+      "food": "Roasted chickpeas… yes, chickpeas 😊",
+      "drink": "Chai Latte with Oat Milk"
+    },
+    {
+      "name": "Reagan Bergen",
+      "focus": "Adult Discipleship",
+      "photo": "/images/residents/2022-reagan-bergen.jpg",
+      "crop": "Center",
+      "hometown": "Lincoln, Nebraska",
+      "college": "University of Nebraska-Lincoln; Bachelor of Journalism",
+      "calling": "Upon my conversion, I had a thirst to know more about God’s grace found in Christ. I quickly got involved in Bible studies, groups, and started to serve in youth ministry. As I shared the gospel with others, I felt a desire and invitation from God to go a step further and pursue vocational ministry.",
+      "food": "Hot wings",
+      "drink": "Iced Chai with Oat Milk"
+    },
+    {
+      "name": "Ashley Jarvi",
+      "focus": "Kids Ministry",
+      "photo": "/images/residents/2022-ashley-jarvi.jpg",
+      "crop": "Center",
+      "hometown": "Apple Valley, Minnesota",
+      "college": "Crown College; Bachelor of Psychology",
+      "calling": "I did not know God as a middle schooler, yet God saved me from the pain and brokenness of my past. He has called me to minister the hope of the gospel to those who feel they have no hope of change, but want new life.",
+      "food": "Popcorn!",
+      "drink": "Vanilla Chai"
+    },
+    {
+      "name": "Glen McMillan",
+      "focus": "High School Ministry",
+      "photo": "/images/residents/2022-glen-mcmillan.jpg",
+      "crop": "Center",
+      "hometown": "Castle Rock, Colorado",
+      "college": "University of Northern Colorado; Bachelor in Marketing with a minor in Communication",
+      "calling": "I became a Christian in high school after my father passed away. I found my faith by going to a local youth group. My youth pastor always supported me, pushed me to be my best, challenged my faith, and treated me as one of his own, I want the opportunity to do for my students what my pastor did for me.",
+      "food": "Fried pickles",
+      "drink": "I don’t like coffee"
+    }
+  ]
+}

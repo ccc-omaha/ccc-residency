@@ -1,0 +1,71 @@
+{
+  "year": 2026,
+  "people": [
+    {
+      "name": "Abi Smith",
+      "focus": "High School Ministry",
+      "photo": "/images/residents/2026-abi-smith.jpg",
+      "crop": "Center",
+      "hometown": "Buford, Georgia",
+      "college": "University of Toccoa Falls; B.S. in Global Engagement",
+      "calling": "I believe God has led me to CCC to make a positive impact on the generation coming up behind me. I pray that over the next two years, I will grow as a discipler and mobilizer, so that the Church will multiply.",
+      "food": "Green Chile Enchiladas",
+      "drink": "Pistachio Cream Cold Brew"
+    },
+    {
+      "name": "Andrea Yang",
+      "focus": "Renewal Ministries & Re:generation Ministry",
+      "photo": "/images/residents/2026-andrea-yang.jpg",
+      "crop": "Center",
+      "hometown": "Allegan, Michigan",
+      "college": "Moody Bible Institute; BA in Intercultural Studies, Interdisciplinary",
+      "calling": "The Lord has placed a deep passion in my heart to care for others. I love building meaningful relationships and helping people find healing. I'm so grateful that God has opened the door for me to serve in Re:gen while pursuing my counseling degree at Crown College.",
+      "food": "Ramen",
+      "drink": "Brown Sugar Oat Milk Shaken Espresso"
+    },
+    {
+      "name": "Sabrina Schiewe",
+      "focus": "Kids Ministry",
+      "photo": "/images/residents/2026-sabrina-schiewe.jpg",
+      "crop": "Center",
+      "hometown": "Wasilla, Alaska",
+      "college": "University of Toccoa Falls; Counseling Psychology with a concentration in Social Work and minors in Bible and Theology and Nonprofit Business Administration",
+      "calling": "I was really impacted by serving as a volunteer in various nonprofits and ministries from a young",
+      "food": "Fried rice",
+      "drink": "Almond Mocha"
+    },
+    {
+      "name": "Haiven Ashton",
+      "focus": "Young Adult Ministry",
+      "photo": "/images/residents/2026-haiven-ashton.jpg",
+      "crop": "Center",
+      "hometown": "Omaha, Nebraska",
+      "college": "Florida State University; International Affairs",
+      "calling": "Throughout my life, God has given me passions, abilities, open doors, and mentors that have all given me glimpses of the different aspects of my",
+      "food": "Poke Bowls",
+      "drink": "Iced Matcha with Lavender Cold Foam"
+    },
+    {
+      "name": "Ella Sushka",
+      "focus": "College Ministry",
+      "photo": "/images/residents/2026-ella-sushka.jpg",
+      "crop": "Center",
+      "hometown": "Carmel, Indiana",
+      "college": "Bethel University; B.A. in Missional Ministries",
+      "calling": "Vocational ministry was not on my mind going into college, and graduating with just a ministry degree was one thing I said I’d never do. It’s funny how God works like that. After an extended period of wrestling with the patient yet persistent voice of God, and by the faithful witness of those around me, I accepted God’s call on my life to pastoral ministry in the local church. I’m looking forward to growing in my understanding and confidence of the particular ways I have been gifted and burdened to cultivate people’s imaginations around knowing and following Jesus!",
+      "food": "Fruit",
+      "drink": "Chai Latte with Oat Milk"
+    },
+    {
+      "name": "Jeffery Lastinger Jr.",
+      "focus": "Communications",
+      "photo": "/images/residents/2026-jeffery-lastinger-jr.jpg",
+      "crop": "Center",
+      "hometown": "Sacramento, California",
+      "college": "University of Toccoa Falls; B.S. in Ministry Leadership",
+      "calling": "When I was a sophomore in college, I received the",
+      "food": "Sushi",
+      "drink": "Brown Sugar Oat Milk Shaken Espresso"
+    }
+  ]
+}

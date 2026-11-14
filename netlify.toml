@@ -1,0 +1,136 @@
+[build]
+  publish = "."
+  command = "node build.js"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# old Squarespace pages
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/about"
+  to = "/program/"
+  status = 301
+[[redirects]]
+  from = "/tracks-and-areas"
+  to = "/program/#areas"
+  status = 301
+[[redirects]]
+  from = "/contact"
+  to = "/apply/#contact"
+  status = 301
+[[redirects]]
+  from = "/interest"
+  to = "/apply/#info"
+  status = 301
+[[redirects]]
+  from = "/hosthome"
+  to = "/host-families/"
+  status = 301
+[[redirects]]
+  from = "/support"
+  to = "/host-families/#support"
+  status = 301
+[[redirects]]
+  from = "/cohorts"
+  to = "/residents/"
+  status = 301
+[[redirects]]
+  from = "/residents-single-page"
+  to = "/residents/"
+  status = 301
+[[redirects]]
+  from = "/2017-2018-cohort"
+  to = "/residents/2017/"
+  status = 301
+[[redirects]]
+  from = "/2018-2019-cohort"
+  to = "/residents/2018/"
+  status = 301
+[[redirects]]
+  from = "/20192020-cohort"
+  to = "/residents/2019/"
+  status = 301
+[[redirects]]
+  from = "/20202021-cohort"
+  to = "/residents/2020/"
+  status = 301
+[[redirects]]
+  from = "/20212022-cohort"
+  to = "/residents/2021/"
+  status = 301
+[[redirects]]
+  from = "/2022/2023-cohort"
+  to = "/residents/2022/"
+  status = 301
+[[redirects]]
+  from = "/20232024-cohort"
+  to = "/residents/2023/"
+  status = 301
+[[redirects]]
+  from = "/20242025-cohort"
+  to = "/residents/2024/"
+  status = 301
+[[redirects]]
+  from = "/20252027-cohort"
+  to = "/residents/2025/"
+  status = 301
+[[redirects]]
+  from = "/20262028-cohort"
+  to = "/residents/2026/"
+  status = 301
+[[redirects]]
+  from = "/keaganblancke"
+  to = "/residents/2017/"
+  status = 301
+[[redirects]]
+  from = "/pollyannalatshaw"
+  to = "/residents/2017/"
+  status = 301
+[[redirects]]
+  from = "/sethherdle"
+  to = "/residents/2017/"
+  status = 301
+[[redirects]]
+  from = "/jennadrucker"
+  to = "/residents/2017/"
+  status = 301
+[[redirects]]
+  from = "/stefannyherdlezapata"
+  to = "/residents/2017/"
+  status = 301
+[[redirects]]
+  from = "/jonathanlatshaw"
+  to = "/residents/2017/"
+  status = 301
+[[redirects]]
+  from = "/rileystauffer"
+  to = "/residents/2017/"
+  status = 301
+[[redirects]]
+  from = "/ashleyhaukos"
+  to = "/residents/2017/"
+  status = 301
+[[redirects]]
+  from = "/tiffanyjones"
+  to = "/residents/2017/"
+  status = 301
+[[redirects]]
+  from = "/s/CCC-Residency-Application-Questionnaire.docx"
+  to = "/files/CCC-Residency-Application-Questionnaire.docx"
+  status = 301
+[[redirects]]
+  from = "/s/2025-Residency-Host-Family-Ministry.pdf"
+  to = "/files/CCC-Residency-Host-Family-Guide.pdf"
+  status = 301

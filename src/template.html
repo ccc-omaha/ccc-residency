@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{url}}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{siteName}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{url}}">
+<meta property="og:image" content="{{image}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#00003D">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/ohw6ayv.css">
+<link rel="stylesheet" href="/styles.css?v={{version}}">
+<script>document.documentElement.classList.replace('no-js','js')</script>
+{{schema}}
+</head>
+<body class="{{bodyClass}}">
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="mark" viewBox="{{markViewBox}}"><path fill="currentColor" fill-rule="evenodd" d="{{markPath}}"/></symbol>
+</svg>
+{{banner}}
+<header class="site-header">
+  <div class="wrap hdr">
+    <a class="brand" href="/" aria-label="CCC Church Residency home">
+      <svg aria-hidden="true"><use href="#mark"/></svg>
+      <span><small>Church</small><b>Residency</b></span>
+    </a>
+    <nav aria-label="Main">
+      <div class="nav">{{nav}}</div>
+      <details class="menu">
+        <summary><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg>Menu</summary>
+        <div class="nav">{{nav}}</div>
+      </details>
+    </nav>
+  </div>
+</header>
+<main id="main">
+{{main}}
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <a class="brand" href="/" aria-label="CCC Church Residency home">
+          <svg aria-hidden="true"><use href="#mark"/></svg>
+          <span><small>Church</small><b>Residency</b></span>
+        </a>
+        <p>{{footerText}}</p>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>{{footerNav}}</ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul>{{contact}}</ul>
+      </div>
+    </div>
+    <p class="fine">&copy; {{year}} Christ Community Church. All rights reserved.</p>
+  </div>
+</footer>
+{{dialog}}
+<script src="/site.js?v={{version}}" defer></script>
+</body>
+</html>
