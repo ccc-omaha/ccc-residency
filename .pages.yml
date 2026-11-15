@@ -283,14 +283,6 @@ content:
         fields:
           - {name: name, label: Name, type: string, required: true, description: "The bold name under the photo and at the top of the profile."}
           - {name: focus, label: Ministry area, type: string, description: "The small blue all-caps line under the name."}
-          - name: length
-            label: Residency length
-            type: select
-            description: Not shown on the page. Leave blank for two years. Pick Three years for the counseling licensure track so they keep showing as a current resident in year three.
-            options:
-              values:
-                - Two years
-                - Three years
           - {name: photo, label: Photo, type: image, description: "Portrait photo. A tall (4 by 5) photo under 300 KB works best."}
           - name: crop
             label: Photo crop

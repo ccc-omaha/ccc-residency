@@ -48,12 +48,8 @@ const vimeo = u => { const m = String(u || '').match(/vimeo\.com\/(?:video\/)?(\
 // ---------- residents (derived) ----------
 const now = new Date();
 const academicYear = now.getMonth() >= 7 ? now.getFullYear() : now.getFullYear() - 1; // cohorts start in August
-// most residents serve two years; the counseling licensure track serves three
-const span = p => p.length === 'Three years' ? 3 : 2;
-const serving = (y, p) => y <= academicYear && y >= academicYear - (span(p) - 1);
 const isCurrent = y => y >= academicYear - 1 && y <= academicYear;
-// "Serving now" shows every cohort with someone still serving, listing only those people
-const current = cohorts.map(x => ({ ...x, people: x.people.filter(p => serving(x.year, p)) })).filter(x => x.people.length);
+const current = cohorts.filter(x => isCurrent(x.year));
 const past = cohorts.filter(x => !isCurrent(x.year) && x.year < academicYear);
 const totalResidents = cohorts.reduce((n, x) => n + x.people.length, 0);
 const firstYear = cohorts.length ? cohorts[cohorts.length - 1].year : '';
@@ -89,7 +85,7 @@ const resCard = (y, p, i) => {
 };
 const cohortBlock = (x, H = 'h2') => `
       <div class="cohort">
-        <div class="cohort-head"><${H}>${esc(x.year)} cohort</${H}>${yearOf(x.year) >= 1 && current.some(c => c.year === x.year) ? `<span class="tag">Year ${yearOf(x.year)}</span>` : ''}</div>
+        <div class="cohort-head"><${H}>${esc(x.year)} cohort</${H}>${isCurrent(x.year) ? `<span class="tag">Year ${yearOf(x.year)}</span>` : ''}</div>
         <ul class="res-grid">
 ${x.people.map((p, i) => resCard(x.year, p, i)).join('\n')}
         </ul>
@@ -327,7 +323,7 @@ ${x.people.map((p, j) => resCard(x.year, p, j)).join('\n')}
       <nav class="cohort-nav" aria-label="Other cohorts">
         ${newer ? `<a class="link" href="/residents/${newer.year}/">&larr; ${esc(newer.year)} cohort</a>` : '<span></span>'}
         ${older ? `<a class="link" href="/residents/${older.year}/">${esc(older.year)} cohort ${icon('arrow')}</a>` : ''}
-      </nav>${current.some(c => c.year === x.year) ? supportMini() : ''}
+      </nav>${isCurrent(x.year) ? supportMini() : ''}
     </div>
   </section>`, { seo: { title: `${x.year} Cohort | CCC Church Residency`, description: `Meet the ${x.year} CCC Church Residency cohort: ${x.people.map(p => p.name).join(', ')}.` } });
 });
