@@ -491,7 +491,7 @@ const appSchema = appSteps.map(s => {
   for (const m of s.body.matchAll(/<(?:input|select|textarea)\b[^>]*>/g)) {
     const tag = m[0], name = (tag.match(/name="([^"]+)"/) || [])[1], id = (tag.match(/id="([^"]+)"/) || [])[1];
     if (!name) continue;
-    const label = labels[id] || (name === 'statement-of-faith' ? 'Agrees with the statement of faith' : name === 'application-agreement' ? 'Agrees to the application agreement' : unesc(name));
+    const label = ({ signature: 'Signature', 'signed-date': 'Date signed' })[name] || labels[id] || (name === 'statement-of-faith' ? 'Agrees with the statement of faith' : name === 'application-agreement' ? 'Agrees to the application agreement' : unesc(name));
     fields.push({ name: unesc(name), label, long: /^<textarea/.test(tag) });
   }
   return { title: s.title, fields };

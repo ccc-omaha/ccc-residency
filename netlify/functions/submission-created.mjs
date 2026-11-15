@@ -4,7 +4,7 @@
 // 3. Sends the submission to Excel (Power Automate) when EXCEL_WEBHOOK_* is set.
 import { getStore, connectLambda } from '@netlify/blobs';
 import { layout, send, emailReady } from './lib/email.mjs';
-import { applicationPdf } from './lib/pdf.mjs';
+import { applicationPdf, nice } from './lib/pdf.mjs';
 import schema from './lib/application-schema.mjs';
 
 const NOTIFY = () => (process.env.RESIDENCY_NOTIFY_TO || 'shannab@cccomaha.org').split(',').map(s => s.trim()).filter(Boolean);
@@ -28,12 +28,13 @@ export const handler = async (event) => {
   const name = `${data['first-name'] || data.name || ''} ${data['last-name'] || ''}`.trim() || 'Someone';
   try {
     if (form === 'residency-application') {
-      const sections = schema.map(s => ({ title: s.title, rows: s.fields.map(f => ({ label: f.label, value: data[f.name] === 'on' ? 'Yes' : data[f.name], long: f.long })) }));
+      // short summary in the email body; every written answer is in the attached PDF
+      const sections = schema.slice(0, 3).map(s => ({ title: s.title, rows: s.fields.filter(f => !f.long).map(f => ({ label: f.label, value: nice(f.name, data[f.name]) })) }));
       const pdf = await applicationPdf(data, at);
       results.email = await send({
         to: NOTIFY(), replyTo: data.email,
         subject: `New residency application: ${name}`,
-        html: layout({ preheader: `${name} applied to the residency.`, eyebrow: 'New application', title: name, intro: `${name} submitted an application. A printable PDF is attached.${data['area-first-choice'] ? ` First choice: <strong>${data['area-first-choice']}</strong>.` : ''}`, sections }),
+        html: layout({ preheader: `${name} applied to the residency.`, eyebrow: 'New application', title: name, intro: `${name} submitted an application. <strong>Their written answers are in the attached PDF</strong>, ready to read or print for reviewers.${data['area-first-choice'] ? ` First choice: <strong>${data['area-first-choice']}</strong>.` : ''}`, sections }),
         text: `${name} submitted a residency application. A PDF is attached.`,
         attachments: [{ filename: pdf.filename, content: Buffer.from(pdf.bytes).toString('base64') }]
       });

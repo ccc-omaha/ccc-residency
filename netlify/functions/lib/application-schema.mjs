@@ -280,12 +280,12 @@ export default [
    },
    {
     "name": "signature",
-    "label": "Type your full name to sign",
+    "label": "Signature",
     "long": false
    },
    {
     "name": "signed-date",
-    "label": "Today's date",
+    "label": "Date signed",
     "long": false
    }
   ]

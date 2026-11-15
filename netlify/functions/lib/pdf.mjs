@@ -8,6 +8,14 @@ const MAP = { '‘': "'", '’': "'", '“': '"', '”': '"', '–': '-', '—':
 const clean = s => String(s ?? '').replace(/\r/g, '').replace(/[‘’“”–—… •]/g, c => MAP[c])
   .normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/[^\x09\x0A\x20-\x7E]/g, '?');
 
+// "2004-03-12" reads better as "March 12, 2004"
+export const nice = (name, v) => {
+  const s = String(v ?? '');
+  if (s === 'on') return 'Yes';
+  const m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  return m ? new Date(Date.UTC(+m[1], +m[2] - 1, +m[3])).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }) : s;
+};
+
 export async function applicationPdf(data, submittedAt = new Date()) {
   const doc = await PDFDocument.create();
   const reg = await doc.embedFont(StandardFonts.Helvetica), bold = await doc.embedFont(StandardFonts.HelveticaBold), serif = await doc.embedFont(StandardFonts.TimesRoman), serifI = await doc.embedFont(StandardFonts.TimesRomanItalic);
@@ -56,7 +64,7 @@ export async function applicationPdf(data, submittedAt = new Date()) {
     page.drawText(clean(step.title), { x: M, y: y - 16, size: 18, font: serifI, color: PURPLE }); y -= 26;
     page.drawLine({ start: { x: M, y }, end: { x: W - M, y }, thickness: 1.2, color: PURPLE }); y -= 14;
     for (const f of rows) {
-      const val = String(data[f.name]) === 'on' ? 'Yes' : String(data[f.name]);
+      const val = nice(f.name, data[f.name]);
       if (f.long) {
         const q = wrap(f.label, bold, 10.5, CW), a = wrap(val, reg, 10.5, CW - 20);
         need(q.length * 14 + Math.min(a.length, 4) * 14 + 24);
