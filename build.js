@@ -484,7 +484,13 @@ const applicationForm = `<form class="f stepped" id="residency-application" name
           <div class="progress" aria-hidden="true"><div class="progress-top"><span class="progress-step"></span><span class="progress-title"></span></div><div class="progress-bar"><span></span></div></div>
 ${appSteps.map((s, i) => `          <fieldset class="step" data-step="${i + 1}" data-title="${esc(s.title)}"><legend><span class="n">${i + 1}</span>${esc(s.title)}</legend>${s.body}
           </fieldset>`).join('\n')}
-          <div class="actions"><button class="btn ghost" type="button" data-prev hidden>Back</button><button class="btn" type="button" data-next hidden>Continue ${icon('arrow')}</button><button class="btn" type="submit">Submit application ${icon('arrow')}</button><p class="status" role="status" aria-live="polite"></p></div>
+          <div class="actions"><button class="btn ghost" type="button" data-prev hidden>Back</button><button class="btn" type="button" data-next hidden>Continue ${icon('arrow')}</button><button class="btn" type="submit">Submit application ${icon('arrow')}</button><button class="linkbtn later" type="button" data-later hidden>Save and finish later</button><p class="status" role="status" aria-live="polite"></p></div>
+          <div class="later-panel" data-later-panel hidden tabindex="-1">
+            <p class="later-title">${icon('check')}<span>Your application is saved.</span></p>
+            <p class="later-msg"></p>
+            <div class="later-link"><input type="text" readonly aria-label="Your resume link"><button class="btn ghost" type="button" data-copy>Copy link</button></div>
+            <p class="later-fine">Anyone with this link can see your answers, so keep it to yourself. It works on any device for 90 days.</p>
+          </div>
           <p class="save-note">${icon('info')}<span>${fmt(AP.saveNote)} <span class="saved-at"></span></span></p>
           <div class="done" tabindex="-1">${icon('check')}<span>${txt(AP.success)}</span></div>
         </form>`;

@@ -122,16 +122,62 @@
     next.addEventListener('click', () => { if (valid()) go(cur + 1); });
     prev.addEventListener('click', () => go(cur - 1));
 
-    // restore
+    // restore: a ?resume= link from email wins over what's saved in this browser
+    const fill = (v) => Object.entries(v || {}).forEach(([k, val]) => {
+      form.querySelectorAll(`[name="${CSS.escape(k)}"]`).forEach(el => { if (el.type === 'checkbox') el.checked = !!val; else el.value = val; });
+    });
+    const rid = new URLSearchParams(location.search).get('resume');
+    if (rid) {
+      fetch('/api/draft?id=' + encodeURIComponent(rid)).then(r => r.ok ? r.json() : Promise.reject(r.status)).then(d => {
+        fill(d.v); try { localStorage.setItem(KEY + '-id', rid); } catch (e) {}
+        conditional(); show(d.step || 0); save();
+        const note = form.querySelector('.resume-note'); note.hidden = false;
+        history.replaceState(null, '', location.pathname + '#application');
+      }).catch(() => {
+        const st = form.querySelector('.status'); st.textContent = 'That saved link has expired or is not valid. Anything saved in this browser is still here.'; st.className = 'status err';
+      });
+    }
     const saved = store.get();
     if (saved) {
-      Object.entries(saved.v || {}).forEach(([k, val]) => {
-        form.querySelectorAll(`[name="${CSS.escape(k)}"]`).forEach(el => { if (el.type === 'checkbox') el.checked = !!val; else el.value = val; });
-      });
+      fill(saved.v);
       const note = form.querySelector('.resume-note');
       if (Object.values(saved.v || {}).some(v => v)) note.hidden = false;
       cur = saved.step || 0;
     }
+    // save to the server so the applicant can finish on any device
+    const later = form.querySelector('[data-later]'), panel = form.querySelector('[data-later-panel]');
+    const IDKEY = KEY + '-id';
+    const getId = () => { try { return localStorage.getItem(IDKEY) || ''; } catch (e) { return ''; } };
+    const setId = id => { try { localStorage.setItem(IDKEY, id); } catch (e) {} };
+    if (later && panel) {
+      later.hidden = false;
+      later.addEventListener('click', async () => {
+        const status = form.querySelector('.status');
+        const email = form.querySelector('input[name="email"]');
+        if (!email.value || !email.checkValidity()) { show(0); email.reportValidity(); email.focus(); status.textContent = 'Add your email first so we can send you the link.'; status.className = 'status err'; return; }
+        later.disabled = true; later.textContent = 'Saving…'; status.textContent = '';
+        try {
+          const res = await fetch('/api/draft', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ id: getId(), step: cur, v: collect(), send: true }) });
+          if (!res.ok) throw new Error(res.status);
+          const d = await res.json();
+          setId(d.id);
+          panel.querySelector('input').value = d.link;
+          panel.querySelector('.later-msg').innerHTML = d.emailed
+            ? `We emailed the link to <strong>${email.value.replace(/[<>&"]/g, '')}</strong>. Check your spam folder if you don't see it.`
+            : `Copy this link, or <a href="mailto:${encodeURIComponent(email.value)}?subject=${encodeURIComponent('My CCC Residency application')}&body=${encodeURIComponent('Pick up where I left off: ' + d.link)}">email it to yourself</a>.`;
+          panel.hidden = false; panel.focus();
+        } catch (e) {
+          status.textContent = 'We could not save to the server just now. Your answers are still saved in this browser.'; status.className = 'status err';
+        }
+        later.disabled = false; later.textContent = 'Save and finish later';
+      });
+      panel.querySelector('[data-copy]').addEventListener('click', e => {
+        const inp = panel.querySelector('input'); inp.select();
+        (navigator.clipboard ? navigator.clipboard.writeText(inp.value) : Promise.reject()).catch(() => document.execCommand('copy'));
+        e.target.textContent = 'Copied';
+      });
+    }
+
     const today = form.querySelector('input[name="signed-date"]');
     if (today && !today.value) { const d = new Date(); today.value = new Date(d - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10); }
     conditional();
@@ -146,7 +192,7 @@
       setTimeout(() => { delete reset.dataset.armed; reset.textContent = 'Start over'; }, 4000);
     });
     form.addEventListener('submit', e => { if (!valid()) { e.preventDefault(); e.stopImmediatePropagation(); } }, true);
-    form.addEventListener('residency:sent', () => store.clear());
+    form.addEventListener('residency:sent', () => { store.clear(); try { localStorage.removeItem(KEY + '-id'); } catch (e) {} });
   });
 
   // Netlify forms without leaving the page

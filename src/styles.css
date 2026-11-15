@@ -418,3 +418,16 @@ h4.mini{font:italic 400 22px var(--serif);color:var(--purple);margin:8px 0 -6px}
   .cohort-head h2,.cohort-head h3{font-size:32px}
   .past-grid .y{font-size:26px}
 }
+
+/* save and finish later */
+.linkbtn.later{font-weight:700;color:var(--purple);margin-left:6px}
+.later-panel{border:1px solid var(--line);border-left:4px solid var(--purple);border-radius:10px;padding:20px 22px;display:grid;gap:10px;background:var(--tint)}
+.later-panel:focus{outline:none}
+.later-title{display:flex;gap:10px;align-items:center;font-weight:700;font-size:18px;margin:0}
+.later-title .i{color:var(--purple);stroke-width:3}
+.later-msg,.later-fine{margin:0;font-size:15px;color:var(--muted)}
+.later-fine{font-size:13px}
+.later-link{display:flex;gap:10px;flex-wrap:wrap}
+.later-link input{flex:1;min-width:220px;font:500 14px var(--sans);padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--navy)}
+.later-link .btn{padding:12px 18px}
+.f:not(.js-steps) [data-later]{display:none}

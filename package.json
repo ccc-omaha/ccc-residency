@@ -1,0 +1,8 @@
+{
+  "name": "ccc-residency",
+  "private": true,
+  "type": "commonjs",
+  "dependencies": {
+    "@netlify/blobs": "^11.1.9"
+  }
+}
