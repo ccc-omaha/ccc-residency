@@ -175,7 +175,8 @@ p,li,summary,dd{text-wrap:pretty}
 .res-card button:hover .more,.res-card button:focus-visible .more{opacity:1}
 .res-card .more .i{width:14px;height:14px;stroke-width:3}
 .res-card .more::after{content:"Read"}
-.res-card h3{font-size:26px;margin:0 0 6px}
+.res-card h3{font-size:26px;margin:0 0 6px;overflow-wrap:break-word;min-width:0}
+.was{display:block;font-size:.68em;line-height:1.3;color:var(--muted,#5b5b7a);margin-top:2px}
 .res-card .focus{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--purple);line-height:1.35}
 .res-card .home{display:block;font-size:15px;color:var(--muted);margin-top:4px}
 .on-dark .res-card .focus{color:var(--aqua)}

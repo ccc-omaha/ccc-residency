@@ -22,6 +22,8 @@ const inline = s => esc(s)
   .replace(/\[(.+?)\]\(((?:https?:\/\/|mailto:|tel:|\/|#)[^\s)]*)\)/g, (m, t, u) => `<a href="${u}"${/^https?:/.test(u) ? ' target="_blank" rel="noopener"' : ''}>${t}</a>`);
 const fmt = s => tie(inline(s));
 const txt = s => tie(esc(s));
+// a resident's name, with a former or maiden name in parentheses set on its own smaller line
+const pname = n => { const m = String(n).match(/^(.*?)\s*(\([^)]+\))$/); return m ? `${esc(m[1])}<span class="was">${esc(m[2])}</span>` : esc(n); };
 const ext = u => /^https?:/.test(u || '') ? ' target="_blank" rel="noopener"' : '';
 const icon = (id, cls = 'i') => `<svg class="${cls}" aria-hidden="true"><use href="#i-${id}"/></svg>`;
 const color = n => 'c-' + String(n || 'Blue').toLowerCase();
@@ -66,8 +68,8 @@ const resCard = (y, p, i) => {
   <button class="close" type="button" aria-label="Close">${icon('x')}</button>
   ${pic(p.photo, p.name, 560, 700, '', `object-position:${pos}`)}
   <div class="pf-body">
-    <h2>${txt(p.name)}</h2>
-    ${p.focus ? `<span class="focus">${txt(p.focus)}</span>` : ''}
+    <h2>${pname(p.name)}</h2>
+    ${p.focus ? `<span class="focus">${txt(p.focus).replace(/ \/ /g, '&nbsp;/ ')}</span>` : ''}
     <dl>
       ${p.hometown ? `<div><dt>${esc(L.hometown)}</dt><dd>${txt(p.hometown)}</dd></div>` : ''}
       ${p.college ? `<div><dt>${esc(L.college)}</dt><dd>${txt(p.college)}</dd></div>` : ''}
@@ -79,8 +81,8 @@ const resCard = (y, p, i) => {
   return `<li class="res-card reveal" style="--d:${(i % 6) * 60}ms">
           <button type="button" data-profile="${id}" aria-label="More about ${esc(p.name)}">
             <span class="ph">${pic(p.photo, p.name, 560, 700, '', `object-position:${pos}`)}<span class="more">${icon('plus')}</span></span>
-            <h3>${txt(p.name)}</h3>
-            ${p.focus ? `<span class="focus">${txt(p.focus)}</span>` : ''}
+            <h3>${pname(p.name)}</h3>
+            ${p.focus ? `<span class="focus">${txt(p.focus).replace(/ \/ /g, '&nbsp;/ ')}</span>` : ''}
             ${p.hometown ? `<span class="home">${txt(p.hometown)}</span>` : ''}
           </button>
         </li>`;
