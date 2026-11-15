@@ -1,11 +1,12 @@
 // Runs on every verified Netlify Forms submission (Netlify calls this by name).
 // 1. Keeps a backup copy of every submission in Netlify Blobs.
 // 2. Emails Shanna a readable version; applications include a printable PDF.
-// 3. Sends the submission to Excel (Power Automate) when EXCEL_WEBHOOK_* is set.
+// 3. Emails the row to a mailbox that a Power Automate flow copies into Excel.
 import { getStore, connectLambda } from '@netlify/blobs';
 import { layout, send, emailReady } from './lib/email.mjs';
 import { applicationPdf, nice } from './lib/pdf.mjs';
 import schema from './lib/application-schema.mjs';
+import { excelRow } from './lib/excel.mjs';
 
 const NOTIFY = () => (process.env.RESIDENCY_NOTIFY_TO || 'shannab@cccomaha.org').split(',').map(s => s.trim()).filter(Boolean);
 const SKIP = new Set(['form-name', 'subject', 'bot-field', 'ip', 'user_agent', 'referrer']);
@@ -50,16 +51,19 @@ export const handler = async (event) => {
     }
   } catch (e) { console.error('email failed', e); }
 
-  // 3. Excel via Power Automate (one flow URL per form)
-  const hook = { 'residency-application': process.env.EXCEL_WEBHOOK_APPLICATION, 'residency-info': process.env.EXCEL_WEBHOOK_INFO, 'residency-contact': process.env.EXCEL_WEBHOOK_CONTACT }[form];
-  if (hook) {
-    try {
-      const flat = { submitted: at.toISOString() };
-      for (const [k, v] of Object.entries(data)) if (!SKIP.has(k)) flat[k] = v === 'on' ? 'Yes' : v;
-      const r = await fetch(hook, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(flat) });
-      results.excel = r.ok;
-    } catch (e) { console.error('excel failed', e); }
-  }
+  // 3. Excel: email the row to the mailbox a Power Automate flow watches
+  try {
+    const x = excelRow(form, data, at);
+    const to = process.env.RESIDENCY_DATA_TO || 'commteam@cccomaha.org';
+    if (x) {
+      const b64 = Buffer.from(JSON.stringify(x)).toString('base64');
+      results.excel = await send({
+        to, subject: `Residency form data: ${x.table}`,
+        text: `Automated record for Excel. Do not edit or forward.\n\nDATA:${b64}:END`,
+        html: `<p>Automated record for Excel. Do not edit or forward.</p><p style="font-size:1px;color:#ffffff">DATA:${b64}:END</p>`
+      });
+    }
+  } catch (e) { console.error('excel failed', e); }
 
   console.log('submission handled', form, payload.id, JSON.stringify(results), 'emailReady', emailReady());
   return { statusCode: 200 };
