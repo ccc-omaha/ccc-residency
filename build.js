@@ -69,7 +69,7 @@ const resCard = (y, p, i) => {
   ${pic(p.photo, p.name, 560, 700, '', `object-position:${pos}`)}
   <div class="pf-body">
     <h2>${pname(p.name)}</h2>
-    ${p.focus ? `<span class="focus">${txt(p.focus).replace(/ \/ /g, '&nbsp;/ ')}</span>` : ''}
+    ${p.focus ? `<span class="focus">${tie(esc(p.focus).replace(/ \/ /g, '&nbsp;/ '))}</span>` : ''}
     <dl>
       ${p.hometown ? `<div><dt>${esc(L.hometown)}</dt><dd>${txt(p.hometown)}</dd></div>` : ''}
       ${p.college ? `<div><dt>${esc(L.college)}</dt><dd>${txt(p.college)}</dd></div>` : ''}
@@ -82,7 +82,7 @@ const resCard = (y, p, i) => {
           <button type="button" data-profile="${id}" aria-label="More about ${esc(p.name)}">
             <span class="ph">${pic(p.photo, p.name, 560, 700, '', `object-position:${pos}`)}<span class="more">${icon('plus')}</span></span>
             <h3>${pname(p.name)}</h3>
-            ${p.focus ? `<span class="focus">${txt(p.focus).replace(/ \/ /g, '&nbsp;/ ')}</span>` : ''}
+            ${p.focus ? `<span class="focus">${tie(esc(p.focus).replace(/ \/ /g, '&nbsp;/ '))}</span>` : ''}
             ${p.hometown ? `<span class="home">${txt(p.hometown)}</span>` : ''}
           </button>
         </li>`;
