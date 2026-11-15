@@ -1,6 +1,6 @@
 {
   "intro": {
-    "eyebrow": "Host a resident",
+    "eyebrow": "Host or support a resident",
     "heading": "Open your home to a future ministry leader.",
     "text": "A healthy, stable place to live is a big part of a resident's growth. Our host families give residents a private room, a safe home, and a front-row seat to everyday faith. Would you prayerfully consider hosting a resident?",
     "buttonText": "Apply to host",
@@ -19,14 +19,9 @@
         "title": "What residents and host families say",
         "link": "https://vimeo.com/879521929",
         "poster": "/images/site/host-video-2023.jpg"
-      },
-      {
-        "title": "Host homes, with Residency Director Dawn Gentry",
-        "link": "https://vimeo.com/606740607/c6ef19905f",
-        "poster": "/images/site/host-video-2021.jpg"
       }
     ],
-    "text": "Dawn Gentry walks through what hosting a resident looks like."
+    "text": ""
   },
   "hosts": {
     "eyebrow": "What hosts do",

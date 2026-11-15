@@ -93,7 +93,7 @@ ${x.people.map((p, i) => resCard(x.year, p, i)).join('\n')}
 const dialog = () => profiles.length ? `<dialog id="profile" class="profile" aria-label="Resident profile"><div class="pf"></div></dialog>\n${profiles.splice(0).join('\n')}` : '';
 
 // ---------- shared pieces ----------
-const NAV = [['Program', '/program/'], ['Residents', '/residents/'], ['Host a Resident', '/host-families/']];
+const NAV = [['Program', '/program/'], ['Residents', '/residents/'], ['Host & Support', '/host-families/']];
 const nav = cur => NAV.map(([t, u]) => `<a href="${u}"${cur === u ? ' aria-current="page"' : ''}>${t}</a>`).join('') + `<a class="btn" href="/apply/"${cur === '/apply/' ? ' aria-current="page"' : ''}>Apply</a>`;
 const S = c.site;
 const banner = S.banner && S.banner.show && S.banner.text ? `<div class="banner">${fmt(S.banner.text)}${S.banner.linkText && S.banner.link ? ` <a href="${esc(S.banner.link)}"${ext(S.banner.link)}>${txt(S.banner.linkText)}</a>` : ''}</div>` : '';
@@ -104,7 +104,7 @@ const contact = [
   S.address && `<li><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(S.address)}" target="_blank" rel="noopener">${esc(S.address)}</a></li>`,
   S.instagram && `<li><a href="${esc(S.instagram)}" target="_blank" rel="noopener">Instagram</a></li>`
 ].filter(Boolean).join('');
-const footerNav = [...NAV, ['Apply', '/apply/'], ['Ask a question', '/apply/#contact']].map(([t, u]) => `<li><a href="${u}">${t}</a></li>`).join('');
+const footerNav = [...NAV.slice(0, 2), ['Host a resident', '/host-families/'], ['Support a resident', '/host-families/#support'], ['Apply', '/apply/'], ['Ask a question', '/apply/#contact']].map(([t, u]) => `<li><a href="${u}">${t}</a></li>`).join('');
 const markSvg = fs.readFileSync(path.join(ROOT, 'images/site/logo-mark.svg'), 'utf8');
 const markViewBox = markSvg.match(/viewBox="([^"]+)"/)[1];
 const markPath = markSvg.match(/ d="([^"]+)"/)[1];
@@ -266,13 +266,14 @@ ${P.degrees.groups.map(g => `        <div class="deg reveal"><h3>${txt(g.label)}
       <ul class="money">
 ${P.money.items.map((x, i) => `        <li class="reveal" style="--d:${i * 60}ms"><h3>${txt(x.title)}</h3><p>${fmt(x.text)}</p></li>`).join('\n')}
       </ul>
+      ${P.money.note ? `<p class="money-note">${fmt(P.money.note)}</p>` : ''}
     </div>
   </section>
 
   <section class="sec on-cream" id="team" aria-labelledby="team-h">
     <div class="wrap">${head(P.team, 'team-h')}
       <ul class="team">
-${P.team.people.map((x, i) => `        <li class="${['c-blue', 'c-magenta', 'c-orange', 'c-purple'][i % 4]}"><span class="av" aria-hidden="true">${esc(x.name.split(/\s+/).map(w => w[0]).slice(0, 2).join(''))}</span><span><b>${txt(x.name)}</b><span>${txt(x.role)}</span></span></li>`).join('\n')}
+${P.team.people.map((x, i) => `        <li class="${['c-blue', 'c-magenta', 'c-orange', 'c-purple'][i % 4]}"><span class="av" aria-hidden="true">${x.photo ? pic(x.photo, '', 400, 400) : esc(x.name.split(/\s+/).map(w => w[0]).slice(0, 2).join(''))}</span><span><b>${txt(x.name)}</b><span>${txt(x.role)}</span></span></li>`).join('\n')}
       </ul>
       <div class="btns">${btn('Apply now', '/apply/')}${btn('Ask a question', '/apply/#contact', 'ghost')}</div>
     </div>
@@ -280,6 +281,8 @@ ${P.team.people.map((x, i) => `        <li class="${['c-blue', 'c-magenta', 'c-o
 
 // ---------- residents ----------
 const R = c.residents;
+const supportMini = () => R.support && R.support.heading ? `
+      <div class="support-mini reveal" style="margin-top:72px"><div><h2>${txt(R.support.heading)}</h2><p>${fmt(R.support.text)}</p></div>${btn(R.support.buttonText, c.host.support.link)}</div>` : '';
 const fill = s => String(s).replace('{residents}', totalResidents).replace('{cohorts}', cohorts.length).replace('{first}', firstYear);
 page('/residents/', 'residents', `
   <section class="intro" aria-labelledby="intro-h">
@@ -295,6 +298,7 @@ page('/residents/', 'residents', `
     <div class="wrap">
       <h2 id="now-h" class="sr-only">${txt(R.current.heading)}</h2>
 ${current.map(x => cohortBlock(x)).join('\n')}
+${supportMini()}
     </div>
   </section>
 
@@ -325,7 +329,7 @@ ${x.people.map((p, j) => resCard(x.year, p, j)).join('\n')}
       <nav class="cohort-nav" aria-label="Other cohorts">
         ${newer ? `<a class="link" href="/residents/${newer.year}/">&larr; ${esc(newer.year)} cohort</a>` : '<span></span>'}
         ${older ? `<a class="link" href="/residents/${older.year}/">${esc(older.year)} cohort ${icon('arrow')}</a>` : ''}
-      </nav>
+      </nav>${isCurrent(x.year) ? supportMini() : ''}
     </div>
   </section>`, { seo: { title: `${x.year} Cohort | CCC Church Residency`, description: `Meet the ${x.year} CCC Church Residency cohort: ${x.people.map(p => p.name).join(', ')}.` } });
 });
@@ -340,7 +344,7 @@ page('/host-families/', 'host', `
         <p class="eyebrow">${txt(HO.intro.eyebrow)}</p>
         <h1 id="intro-h">${txt(HO.intro.heading)}</h1>
         <p class="lead">${fmt(HO.intro.text)}</p>
-        <div class="btns">${btn(HO.intro.buttonText, HO.intro.link)}${btn('How it works', '#steps', 'ghost')}</div>
+        <div class="btns">${btn(HO.intro.buttonText, HO.intro.link)}${btn('Support a resident', '#support', 'ghost')}</div>
       </div>
       <div>${pic(HO.intro.photo, HO.intro.photoAlt, 1800, 1200, ' loading="eager"').replace(' loading="lazy"', '')}</div>
     </div>
@@ -435,29 +439,59 @@ const form = (name, subject, success, inner, files = false) => `<form class="f" 
         </form>`;
 const AP = A.application;
 const AREAS = [...c.program.areas.items.map(a => a.title), 'Not sure yet'];
-const applicationForm = form('residency-application', 'New CCC Residency application', AP.success, `
-          <fieldset><legend>About you</legend>
+// The application: one Netlify form split into steps. site.js shows one step at a time
+// and saves answers on the applicant's device. Without JavaScript every step shows at once.
+const qSlug = q => String(q).replace(/[?.:]+$/, '').slice(0, 110);
+const ta = (name, label, required, form = 'app', hint) => {
+  const id = form + '-' + slug(name).slice(0, 40);
+  return `<div class="fld"><label for="${id}">${esc(label)}${required ? ' <span class="req" aria-hidden="true">*</span>' : ''}</label><textarea id="${id}" name="${esc(name)}"${required ? ' required' : ''}${hint ? ` aria-describedby="${id}-h"` : ''}></textarea>${hint ? `<span class="hint" id="${id}-h">${esc(hint)}</span>` : ''}</div>`;
+};
+const CHOICES = [...c.program.areas.items.map(a => a.title), 'Other', 'Not sure yet'];
+const appSteps = [
+  { title: 'About you', body: `
             <div class="row">${field('first-name', 'First name', { form: 'app', required: true, auto: 'given-name' })}${field('last-name', 'Last name', { form: 'app', required: true, auto: 'family-name' })}</div>
             <div class="row">${field('email', 'Email', { form: 'app', type: 'email', required: true, auto: 'email' })}${field('phone', 'Phone', { form: 'app', type: 'tel', required: true, auto: 'tel' })}</div>
             ${field('street', 'Street address', { form: 'app', required: true, auto: 'street-address' })}
-            <div class="row three">${field('city', 'City', { form: 'app', required: true, auto: 'address-level2' })}${field('state', 'State', { form: 'app', required: true, auto: 'address-level1' })}${field('zip', 'ZIP', { form: 'app', required: true, auto: 'postal-code', inputmode: 'numeric' })}</div>
-            ${field('date-of-birth', 'Date of birth', { form: 'app', type: 'date', required: true, auto: 'bday' })}
-          </fieldset>
-          <fieldset><legend>Your church</legend>
+            <div class="row three">${field('city', 'City', { form: 'app', required: true, auto: 'address-level2' })}${field('state', 'State', { form: 'app', required: true, auto: 'address-level1' })}${field('zip', 'ZIP', { form: 'app', required: true, auto: 'postal-code' })}</div>
+            ${field('date-of-birth', 'Date of birth', { form: 'app', type: 'date', required: true, auto: 'bday' })}` },
+  { title: 'Church and education', body: `
             <div class="row">${field('church', 'Church you currently attend', { form: 'app', required: true })}${field('church-city-state', 'Church city and state', { form: 'app', required: true })}</div>
             ${field('church-website', 'Church website', { form: 'app', type: 'url', required: true, placeholder: 'https://' })}
-          </fieldset>
-          <fieldset><legend>Education</legend>
             <div class="row">${field('education', 'Highest level of education', { form: 'app', required: true, options: AP.education })}${field('degree', 'Degree completed or in progress', { form: 'app', placeholder: 'B.A. in Communications' })}</div>
-            <div class="row">${field('graduation-date', 'Graduation date', { form: 'app', required: true, placeholder: 'May 2027', hint: 'Past or expected.' })}${field('gpa', 'Cumulative GPA', { form: 'app', required: true, inputmode: 'decimal' })}</div>
-          </fieldset>
-          <fieldset><legend>The residency</legend>
-            ${field('area-of-interest', 'Area of focus you are most interested in', { form: 'app', required: true, options: AREAS })}
-            ${field('questionnaire', 'Completed questionnaire', { form: 'app', type: 'file', required: true, accept: '.doc,.docx,.pdf', hint: 'Word or PDF. Download it in step 1 above if you have not yet.' })}
-            ${field('resume', 'Resume (optional)', { form: 'app', type: 'file', accept: '.doc,.docx,.pdf' })}
-            ${field('heard-about', 'How did you hear about the residency?', { form: 'app' })}
-            ${field('anything-else', 'Anything else you want us to know?', { form: 'app', type: 'textarea' })}
-          </fieldset>`, true).replace('>Send <svg', '>Submit application <svg');
+            <div class="row">${field('graduation-date', 'Graduation date', { form: 'app', required: true, placeholder: 'May 2027', hint: 'Past or expected.' })}${field('gpa', 'Cumulative GPA', { form: 'app', required: true, inputmode: 'decimal' })}</div>` },
+  { title: 'Ministry and references', body: `
+            <p class="step-intro">Rank the ministry areas you're most interested in.</p>
+            <div class="row three-even">${field('area-first-choice', 'First choice', { form: 'app', required: true, options: CHOICES })}${field('area-second-choice', 'Second choice', { form: 'app', options: CHOICES })}${field('area-third-choice', 'Third choice', { form: 'app', options: CHOICES })}</div>
+            <div data-show-if="Other">${field('area-other', 'If other, describe what you are called to', { form: 'app' })}</div>
+            <div data-show-if="Worship Arts">${field('worship-video-link', 'Link to a video of you singing, playing, or leading worship', { form: 'app', type: 'url', required: true, placeholder: 'https://', hint: 'YouTube, Vimeo, Instagram, or a shared Google Drive link all work.' })}</div>
+            ${field('referred-by', 'Who referred you to CCC Residency?', { form: 'app' })}
+            ${ta('previous-church-work', 'Previous church work (last 3 years)', true)}
+            <div class="row">${field('reference-1-name', 'Leader reference 1: name', { form: 'app', required: true })}${field('reference-1-email', 'Leader reference 1: email', { form: 'app', type: 'email', required: true })}</div>
+            <div class="row">${field('reference-2-name', 'Leader reference 2: name', { form: 'app', required: true })}${field('reference-2-email', 'Leader reference 2: email', { form: 'app', type: 'email', required: true })}</div>` },
+  ...AP.questionSteps.map(s => ({ title: s.title, body: `
+            ${s.intro ? `<p class="step-intro">${fmt(s.intro)}</p>` : ''}
+            ${s.questions.map(q => ta(qSlug(q.q), q.q, q.required !== false)).join('\n            ')}` })),
+  { title: 'Statement of faith and agreement', body: `
+            <h4 class="mini">Statement of faith</h4>
+            <div class="scrollbox" tabindex="0" aria-label="Statement of faith">${AP.statementOfFaith.map(p => `<p>${fmt(p)}</p>`).join('')}</div>
+            <label class="agree"><input type="checkbox" name="statement-of-faith" value="I agree" required> <span>I agree with the statement of faith. <span class="req" aria-hidden="true">*</span></span></label>
+            <h4 class="mini">Application agreement</h4>
+            <div class="scrollbox short"><p>${fmt(AP.agreement)}</p></div>
+            <label class="agree"><input type="checkbox" name="application-agreement" value="I agree" required> <span>I agree. <span class="req" aria-hidden="true">*</span></span></label>
+            <div class="row">${field('signature', 'Type your full name to sign', { form: 'app', required: true, auto: 'name' })}${field('signed-date', "Today's date", { form: 'app', type: 'date', required: true })}</div>` }
+];
+const applicationForm = `<form class="f stepped" id="residency-application" name="residency-application" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field" data-save="ccc-residency-application">
+          <input type="hidden" name="form-name" value="residency-application">
+          <input type="hidden" name="subject" value="New CCC Residency application">
+          <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <div class="resume-note" hidden>${icon('check')}<span>Welcome back. Your saved answers are filled in.</span> <button type="button" class="linkbtn" data-reset>Start over</button></div>
+          <div class="progress" aria-hidden="true"><div class="progress-top"><span class="progress-step"></span><span class="progress-title"></span></div><div class="progress-bar"><span></span></div></div>
+${appSteps.map((s, i) => `          <fieldset class="step" data-step="${i + 1}" data-title="${esc(s.title)}"><legend><span class="n">${i + 1}</span>${esc(s.title)}</legend>${s.body}
+          </fieldset>`).join('\n')}
+          <div class="actions"><button class="btn ghost" type="button" data-prev hidden>Back</button><button class="btn" type="button" data-next hidden>Continue ${icon('arrow')}</button><button class="btn" type="submit">Submit application ${icon('arrow')}</button><p class="status" role="status" aria-live="polite"></p></div>
+          <p class="save-note">${icon('info')}<span>${fmt(AP.saveNote)} <span class="saved-at"></span></span></p>
+          <div class="done" tabindex="-1">${icon('check')}<span>${txt(AP.success)}</span></div>
+        </form>`;
 const infoForm = form('residency-info', 'CCC Residency info request', A.info.success, `
           <div class="row">${field('first-name', 'First name', { form: 'info', required: true, auto: 'given-name' })}${field('last-name', 'Last name', { form: 'info', required: true, auto: 'family-name' })}</div>
           ${field('email', 'Email', { form: 'info', type: 'email', required: true, auto: 'email' })}
@@ -495,7 +529,7 @@ page('/apply/', 'apply', `
       </div>
       <aside class="apply-aside">
         <div class="box fit"><h2>${txt(A.fit.heading)}</h2><ul>${A.fit.points.map(p => `<li>${icon('check')}<span>${fmt(p)}</span></li>`).join('')}</ul></div>
-        <div class="box"><h2>Need the questionnaire?</h2><p>Fill it out first, then upload it with your application.</p><a class="dl-btn" href="${esc(A.steps[0].file)}" download>Download (.docx) ${icon('down')}</a></div>
+        <div class="box"><h2>Your progress saves</h2><p>${fmt(AP.saveNote)}</p></div>
       </aside>
     </div>
   </section>

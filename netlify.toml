@@ -128,7 +128,7 @@
   status = 301
 [[redirects]]
   from = "/s/CCC-Residency-Application-Questionnaire.docx"
-  to = "/files/CCC-Residency-Application-Questionnaire.docx"
+  to = "/apply/"
   status = 301
 [[redirects]]
   from = "/s/2025-Residency-Host-Family-Ministry.pdf"

@@ -243,6 +243,7 @@ content:
             fields:
               - {name: title, label: Box title, type: string, description: "The aqua title in the box."}
               - {name: text, label: Box text, type: text, description: "The sentence in the box."}
+          - {name: note, label: Giving note, type: string, description: 'The small line under the five boxes, with a link to the giving section on the Host & Support page.'}
       - name: team
         label: Residency team
         type: object
@@ -258,6 +259,7 @@ content:
             fields:
               - {name: name, label: Name, type: string, description: "The bold name on the card. The initials circle is made from it."}
               - {name: role, label: Title, type: string, description: "The gray title under the name."}
+              - {name: photo, label: Photo, type: image, description: 'The round photo on the team card. Square, about 400 by 400. Leave blank to show initials.'}
 
   # ---------------------------------------------------------------
   - name: cohorts
@@ -320,6 +322,14 @@ content:
         fields:
           - {name: heading, label: Heading, type: string, description: "The heading above the year cards."}
           - {name: text, label: Paragraph, type: string, description: "The line under the heading."}
+      - name: support
+        label: Support box
+        type: object
+        description: The white box with a Give button under the current residents, on the Residents page and on current cohort pages. The button uses the giving link from the Host & Support page.
+        fields:
+          - {name: heading, label: Heading, type: string, description: The bold heading in the box.}
+          - {name: text, label: Paragraph, type: text, description: The line under the heading.}
+          - {name: buttonText, label: Button text, type: string, description: The blue Give button. Leave the heading blank to hide the whole box.}
       - name: labels
         label: Profile labels
         type: object
@@ -333,7 +343,7 @@ content:
 
   # ---------------------------------------------------------------
   - name: host
-    label: "6. Host a Resident page"
+    label: "6. Host & Support page"
     type: file
     path: content/host.json
     format: json
@@ -360,7 +370,7 @@ content:
       - name: video
         label: Videos
         type: object
-        description: "The first video sits next to Why one to three years. The second gets its own section lower on the page."
+        description: "The first video sits next to Why one to three years. Add a second video and it gets its own section lower on the page, with the heading below."
         fields:
           - {name: heading, label: Second video heading, type: string, description: "The heading next to the second video."}
           - {name: text, label: Second video paragraph, type: string, description: "The line under that heading."}
@@ -455,7 +465,7 @@ content:
           - {name: title, label: Step title, type: string, description: "The bold title on the step card."}
           - {name: text, label: Step text, type: text, description: "The paragraph on the step card."}
           - {name: buttonText, label: Button text, type: string, description: "The button or link at the bottom of the card. Leave blank for none."}
-          - {name: file, label: Button link or file, type: string, description: "A file like /files/CCC-Residency-Application-Questionnaire.docx downloads. #application jumps to the form."}
+          - {name: file, label: Button link or file, type: string, description: "Where the button goes. #application jumps to the form. Leave blank for no button."}
       - name: fit
         label: Is this a fit
         type: object
@@ -466,12 +476,31 @@ content:
       - name: application
         label: Application form
         type: object
-        description: "The large form. Submissions are emailed by Netlify."
+        description: "The step-by-step application. Contact, church, education, ministry, and reference questions are built in. The written questions, statement of faith, and agreement are edited here. Submissions are emailed by Netlify."
         fields:
-          - {name: heading, label: Heading, type: string, description: "The heading above the form."}
-          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
-          - {name: education, label: Education choices, type: string, list: true, description: "The choices in the Highest level of education dropdown."}
-          - {name: success, label: Thank-you message, type: string, description: "The green message that replaces the form after someone submits."}
+          - {name: heading, label: Heading, type: string, description: The heading above the form.}
+          - {name: text, label: Paragraph, type: text, description: The line under the heading.}
+          - {name: saveNote, label: Save note, type: text, description: "The line under the form buttons and in the box beside the form, explaining that answers save on the applicant's device."}
+          - {name: education, label: Education choices, type: string, list: true, description: The choices in the Highest level of education dropdown on step 2.}
+          - name: questionSteps
+            label: Written question steps
+            type: object
+            list: true
+            description: Each entry is one step of written questions, after the Ministry and references step. Changing a question's wording starts a new column in Netlify's submissions.
+            fields:
+              - {name: title, label: Step title, type: string, description: 'The bold title at the top of the step, next to Step 4 of 8.'}
+              - {name: intro, label: Step intro, type: string, description: The gray line at the top of the step.}
+              - name: questions
+                label: Questions
+                type: object
+                list: true
+                description: Each question gets its own answer box, in order.
+                fields:
+                  - {name: q, label: Question, type: string, description: The question above the answer box.}
+                  - {name: required, label: Required, type: boolean, description: Not shown on the page. Turn off to make the question optional.}
+          - {name: statementOfFaith, label: Statement of faith, type: text, list: true, description: The paragraphs in the scrolling cream box on the last step. Applicants check I agree under it.}
+          - {name: agreement, label: Application agreement, type: text, description: 'The agreement text on the last step, above its I agree checkbox.'}
+          - {name: success, label: Thank-you message, type: string, description: The green message that replaces the form after someone submits.}
       - name: info
         label: Get more info form
         type: object

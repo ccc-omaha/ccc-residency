@@ -17,5 +17,10 @@
     "calling": "Call to ministry",
     "food": "Favorite food",
     "drink": "Coffee order"
+  },
+  "support": {
+    "heading": "Want to support these residents?",
+    "text": "Each resident raises monthly support, and the church matches it up to $400 a month. Partner with them by giving online.",
+    "buttonText": "Give to the residency"
   }
 }

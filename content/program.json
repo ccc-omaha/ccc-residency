@@ -166,23 +166,27 @@
         "title": "Transportation",
         "text": "Residents provide their own vehicle and transportation."
       }
-    ]
+    ],
+    "note": "Friends and family who want to partner with a resident can [give online](/host-families/#support)."
   },
   "team": {
     "eyebrow": "Residency team",
     "heading": "Who you'll work with.",
     "people": [
       {
-        "name": "Dawn Gentry",
-        "role": "Residency Director"
+        "name": "Dan McClannan",
+        "role": "Residency Director",
+        "photo": "/images/team/dan-mcclannan.jpg"
       },
       {
         "name": "Karl Pagenkemper",
-        "role": "Residency Academic and Placement Dean"
+        "role": "Residency Academic and Placement Dean",
+        "photo": "/images/team/karl-pagenkemper.jpg"
       },
       {
         "name": "Shanna Beachy",
-        "role": "Residency Recruitment Administrative Manager"
+        "role": "Residency Administrative Manager",
+        "photo": "/images/team/shanna-beachy.jpg"
       }
     ]
   }
