@@ -36,6 +36,8 @@ const pic = (p, alt, w, h, attrs = '', style = '') => {
   const st = style ? ` style="${style}"` : '';
   return `<picture>${has ? `<source type="image/webp" srcset="${esc(webp)}">` : ''}<img src="${esc(s)}" alt="${esc(alt)}" width="${w}" height="${h}" loading="lazy" decoding="async"${attrs}${st}></picture>`;
 };
+const band = x => x && x.photo ? `
+  <div class="band reveal"><div class="wrap">${pic(x.photo, x.photoAlt || '', 2200, 1467)}</div></div>` : '';
 const head = (x, id, cls = '') => `
       <div class="sec-head${cls}">
         ${x.eyebrow ? `<p class="eyebrow">${txt(x.eyebrow)}</p>` : ''}
@@ -169,7 +171,7 @@ ${H.pillars.items.map((x, i) => `        <article class="pillar ${color(x.color)
 
   <section class="sec on-cream" aria-labelledby="who-h">
     <div class="wrap who">
-      <div class="photo reveal">${pic('/images/site/worship-stage.jpg', 'A worship leader singing on an outdoor stage at a CCC event', 1800, 1200)}<div class="rings" aria-hidden="true"></div></div>
+      <div class="photo reveal">${pic(H.who.photo, H.who.photoAlt, 733, 1100)}<div class="rings" aria-hidden="true"></div></div>
       <div>
         <p class="eyebrow">${txt(H.who.eyebrow)}</p>
         <h2 id="who-h">${txt(H.who.heading)}</h2>
@@ -202,7 +204,7 @@ ${H.pillars.items.map((x, i) => `        <article class="pillar ${color(x.color)
         <p class="lead">${fmt(H.closing.text)}</p>
         <div class="btns">${btn(H.closing.primaryButton, H.closing.primaryLink)}${btn(H.closing.secondaryButton, H.closing.secondaryLink, 'ghost')}</div>
       </div>
-      <div class="reveal">${pic(H.closing.photo, H.closing.photoAlt, 1800, 1200)}</div>
+      <div class="reveal">${pic(H.closing.photo, H.closing.photoAlt, 733, 1100)}</div>
     </div>
   </section>`, {
   schema: `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'EducationalOccupationalProgram', name: c.seo.siteName, description: c.seo.pages.home.description, url: SITE_URL, timeToComplete: 'P2Y', provider: { '@type': 'Organization', name: 'Christ Community Church', url: 'https://cccomaha.org', address: S.address } })}</script>`
@@ -222,6 +224,7 @@ page('/program/', 'program', `
     </div>
   </section>
 
+${band(P.band)}
   <section class="sec on-dark" id="week" aria-labelledby="week-h">
     <div class="wrap">${head(P.week, 'week-h')}
       <div class="week">
@@ -298,6 +301,7 @@ ${supportMini()}
     </div>
   </section>
 
+${band(R.band)}
   <section class="sec on-cream" aria-labelledby="past-h">
     <div class="wrap">${head({ heading: R.past.heading, text: R.past.text }, 'past-h')}
       <ul class="past-grid">
@@ -342,7 +346,7 @@ page('/host-families/', 'host', `
         <p class="lead">${fmt(HO.intro.text)}</p>
         <div class="btns">${btn(HO.intro.buttonText, HO.intro.link)}${btn('Support a resident', '#support', 'ghost')}</div>
       </div>
-      <div>${pic(HO.intro.photo, HO.intro.photoAlt, 1800, 1200, ' loading="eager"').replace(' loading="lazy"', '')}</div>
+      <div>${pic(HO.intro.photo, HO.intro.photoAlt, 733, 1100, ' loading="eager"').replace(' loading="lazy"', '')}</div>
     </div>
   </section>
 
@@ -373,6 +377,7 @@ ${HO.hosts.items.map((x, i) => `        <li class="${['c-blue', 'c-orange', 'c-m
     </div>
   </section>
 
+${band(HO.band)}
   <section class="sec on-cream" id="steps" aria-labelledby="steps-h">
     <div class="wrap">${head(HO.steps, 'steps-h')}
       <ol class="steps">
@@ -507,12 +512,14 @@ const contactForm = form('residency-contact', 'CCC Residency website question', 
           ${field('message', 'Message', { form: 'ct', type: 'textarea', required: true })}`);
 page('/apply/', 'apply', `
   <section class="intro" aria-labelledby="intro-h">
-    <div class="rings" aria-hidden="true"></div>
-    <div class="wrap">
-      <p class="eyebrow">${txt(A.intro.eyebrow)}</p>
-      <h1 id="intro-h">${txt(A.intro.heading)}</h1>
-      <p class="lead">${fmt(A.intro.text)}</p>
-      <nav class="subnav" aria-label="On this page"><a href="#application">Application</a><a href="#info">Get more info</a><a href="#contact">Ask a question</a><a href="#faq">FAQ</a></nav>
+    <div class="wrap${A.intro.photo ? ' intro-grid' : ''}">
+      <div>
+        <p class="eyebrow">${txt(A.intro.eyebrow)}</p>
+        <h1 id="intro-h">${txt(A.intro.heading)}</h1>
+        <p class="lead">${fmt(A.intro.text)}</p>
+        <nav class="subnav" aria-label="On this page"><a href="#application">Application</a><a href="#info">Get more info</a><a href="#contact">Ask a question</a><a href="#faq">FAQ</a></nav>
+      </div>
+      ${A.intro.photo ? `<div>${pic(A.intro.photo, A.intro.photoAlt || '', 733, 1100, ' loading="eager"').replace(' loading="lazy"', '')}</div>` : ''}
     </div>
   </section>
 

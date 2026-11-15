@@ -431,3 +431,8 @@ h4.mini{font:italic 400 22px var(--serif);color:var(--purple);margin:8px 0 -6px}
 .later-link input{flex:1;min-width:220px;font:500 14px var(--sans);padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--navy)}
 .later-link .btn{padding:12px 18px}
 .f:not(.js-steps) [data-later]{display:none}
+
+/* full-width photo band between sections */
+.band{padding:clamp(40px,5vw,72px) 0}
+.band img{width:100%;aspect-ratio:21/9;object-fit:cover;border-radius:var(--r)}
+@media (max-width:700px){.band img{aspect-ratio:4/3}}

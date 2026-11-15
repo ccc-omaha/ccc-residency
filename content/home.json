@@ -61,7 +61,9 @@
       "You want a master's degree without the debt",
       "You want people investing in you, not just a job description"
     ],
-    "note": "No bachelor's degree yet? You can still apply. Residents without a college degree complete thirty credit hours of Bible and theology through Crown College."
+    "note": "No bachelor's degree yet? You can still apply. Residents without a college degree complete thirty credit hours of Bible and theology through Crown College.",
+    "photo": "/images/site/who-josiah-bryce.jpg",
+    "photoAlt": "Two residents laughing together outside"
   },
   "focus": {
     "eyebrow": "Areas of focus",
@@ -86,7 +88,7 @@
     "primaryLink": "/apply/",
     "secondaryButton": "Get more info",
     "secondaryLink": "/apply/#info",
-    "photo": "/images/site/community.jpg",
-    "photoAlt": "Two people laughing together at an outdoor CCC gathering"
+    "photo": "/images/site/cohort-ivy-wall.jpg",
+    "photoAlt": "Four residents standing together in front of an ivy-covered wall"
   }
 }

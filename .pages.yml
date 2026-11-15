@@ -101,6 +101,8 @@ content:
           - {name: text, label: Paragraph, type: text, description: "The paragraph under the heading."}
           - {name: points, label: Checkmark lines, type: string, list: true, description: "Each line gets a blue checkmark."}
           - {name: note, label: Note, type: text, description: "The white box with the orange info icon under the checkmarks."}
+          - {name: photo, label: Photo, type: image, description: The tall arch-shaped photo next to this section. Use a portrait (tall) photo under 500 KB.}
+          - {name: photoAlt, label: Photo description, type: string, description: Not shown on the page. Describes the photo for screen readers.}
       - name: focus
         label: Areas of focus
         type: object
@@ -137,7 +139,7 @@ content:
           - {name: primaryLink, label: Blue button link, type: string, description: "Where the blue button goes."}
           - {name: secondaryButton, label: Outline button text, type: string, description: "The outlined button."}
           - {name: secondaryLink, label: Outline button link, type: string, description: "Where the outlined button goes."}
-          - {name: photo, label: Photo, type: image, description: "The tilted photo on the right. Use a landscape photo under 500 KB."}
+          - {name: photo, label: Photo, type: image, description: "The arch-shaped photo on the right. Use a portrait (tall) photo under 500 KB."}
           - {name: photoAlt, label: Photo description, type: string, description: "Not shown on the page. Describes the photo for screen readers."}
 
   # ---------------------------------------------------------------
@@ -155,6 +157,13 @@ content:
           - {name: eyebrow, label: Small label, type: string, description: "The small blue all-caps line above the headline."}
           - {name: heading, label: Headline, type: string, description: "The big headline."}
           - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline."}
+      - name: band
+        label: Wide photo
+        type: object
+        description: The full-width photo between the top of the page and Your week.
+        fields:
+          - {name: photo, label: Photo, type: image, description: A wide (landscape) photo under 800 KB. Leave blank to hide the wide photo.}
+          - {name: photoAlt, label: Photo description, type: string, description: Not shown on the page. Describes the photo for screen readers.}
       - name: week
         label: Your week
         type: object
@@ -319,6 +328,13 @@ content:
         description: Not shown on the page.
         fields:
           - {name: heading, label: Heading, type: string, description: "Not shown on the page. Read aloud by screen readers before the current cohorts."}
+      - name: band
+        label: Wide photo
+        type: object
+        description: The full-width photo between the current residents and Past cohorts.
+        fields:
+          - {name: photo, label: Photo, type: image, description: A wide (landscape) photo under 800 KB. Leave blank to hide the wide photo.}
+          - {name: photoAlt, label: Photo description, type: string, description: Not shown on the page. Describes the photo for screen readers.}
       - name: past
         label: Past cohorts
         type: object
@@ -362,7 +378,7 @@ content:
           - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline."}
           - {name: buttonText, label: Button text, type: string, description: "The blue button under the paragraph."}
           - {name: link, label: Button link, type: string, description: "Where the blue button goes. Currently the Church Center host family form."}
-          - {name: photo, label: Photo, type: image, description: "The tilted photo on the right. Use a landscape photo under 500 KB."}
+          - {name: photo, label: Photo, type: image, description: "The arch-shaped photo on the right. Use a portrait (tall) photo under 500 KB."}
           - {name: photoAlt, label: Photo description, type: string, description: "Not shown on the page. Describes the photo for screen readers."}
       - name: stability
         label: Why one to three years
@@ -416,6 +432,13 @@ content:
         fields:
           - {name: heading, label: Heading, type: string, description: "The heading above the blue list."}
           - {name: points, label: List, type: string, list: true, description: "Each line gets a blue circle."}
+      - name: band
+        label: Wide photo
+        type: object
+        description: The full-width photo just above How to become a host family.
+        fields:
+          - {name: photo, label: Photo, type: image, description: A wide (landscape) photo under 800 KB. Leave blank to hide the wide photo.}
+          - {name: photoAlt, label: Photo description, type: string, description: Not shown on the page. Describes the photo for screen readers.}
       - name: steps
         label: Next steps
         type: object
@@ -460,6 +483,8 @@ content:
           - {name: eyebrow, label: Small label, type: string, description: "The small blue all-caps line above the headline."}
           - {name: heading, label: Headline, type: string, description: "The big headline."}
           - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline."}
+          - {name: photo, label: Photo, type: image, description: The arch-shaped photo beside the headline. Use a portrait (tall) photo under 500 KB. Leave blank to hide it.}
+          - {name: photoAlt, label: Photo description, type: string, description: Not shown on the page. Describes the photo for screen readers.}
       - name: steps
         label: Steps
         type: object

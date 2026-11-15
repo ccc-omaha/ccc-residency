@@ -189,5 +189,9 @@
         "photo": "/images/team/shanna-beachy.jpg"
       }
     ]
+  },
+  "band": {
+    "photo": "/images/site/cohort-walking-downtown.jpg",
+    "photoAlt": "Residents walking together down a brick street in downtown Omaha"
   }
 }

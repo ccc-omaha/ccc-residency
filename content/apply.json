@@ -2,7 +2,9 @@
   "intro": {
     "eyebrow": "Apply",
     "heading": "Apply to CCC Church Residency.",
-    "text": "Everything happens in one online application, and your answers save on this device as you go, so you can finish in more than one sitting. Once you submit, a member of our residency leadership team will be in touch within a few business days about next steps."
+    "text": "Everything happens in one online application, and your answers save on this device as you go, so you can finish in more than one sitting. Once you submit, a member of our residency leadership team will be in touch within a few business days about next steps.",
+    "photo": "/images/site/josiah-looking-up.jpg",
+    "photoAlt": "A resident smiling and looking up"
   },
   "fit": {
     "heading": "Is this a fit?",
