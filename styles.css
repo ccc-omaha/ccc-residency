@@ -314,6 +314,10 @@ form.f{display:grid;gap:20px}
 .fld .hint{display:block;font-size:14px;color:var(--muted);margin-top:6px;line-height:1.4}
 .fld input,.fld select,.fld textarea{width:100%;font:500 17px/1.4 var(--sans);color:var(--navy);background:#fff;border:1px solid rgba(0,0,61,.28);border-radius:10px;padding:14px;transition:border-color .15s,box-shadow .15s}
 .fld textarea{min-height:140px;resize:vertical}
+/* iOS draws date fields wider than the box and centers the text: make them match the other fields */
+.fld input[type=date]{-webkit-appearance:none;appearance:none;display:block;min-width:0;max-width:100%;box-sizing:border-box;height:54px;text-align:left}
+.fld input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0}
+.fld input[type=date]::-webkit-calendar-picker-indicator{margin-left:auto}
 .fld input:focus,.fld select:focus,.fld textarea:focus{outline:0;border-color:var(--purple);box-shadow:0 0 0 4px rgba(99,52,152,.16)}
 .f .actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .f .status{font-weight:700;font-size:16px;margin:0}
