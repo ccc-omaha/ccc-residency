@@ -21,17 +21,22 @@ export function layout({ preheader = '', eyebrow = '', title, intro = '', sectio
       </tr></table>
     </td></tr>`).join('')}`).join('');
   return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title></head>
-<body style="margin:0;padding:0;background:#efedf4">
+<body style="margin:0;padding:0;background:#efedf4" bgcolor="#efedf4">
 <span style="display:none;max-height:0;overflow:hidden">${esc(preheader)}</span>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#efedf4"><tr><td align="center" style="padding:28px 12px">
-  <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;background:#ffffff;border-radius:14px;overflow:hidden">
-    <tr><td style="background:${PURPLE};padding:22px 32px;font:400 13px Arial,Helvetica,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#ffffff">Church <b style="letter-spacing:.06em">Residency</b></td></tr>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#efedf4" style="background:#efedf4"><tr><td align="center" style="padding:28px 12px">
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="width:100%;max-width:600px;background:#ffffff;border-radius:14px;overflow:hidden">
+    <tr><td bgcolor="${PURPLE}" style="background:${PURPLE};padding:22px 32px;font:400 13px Arial,Helvetica,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#ffffff">Church <b style="letter-spacing:.06em">Residency</b></td></tr>
     <tr><td style="padding:30px 32px 0">
       ${eyebrow ? `<div style="font:italic 400 18px Georgia,'Times New Roman',serif;color:${PURPLE};margin-bottom:6px">${esc(eyebrow)}</div>` : ''}
       <div style="font:400 30px/1.15 Georgia,'Times New Roman',serif;color:${NAVY}">${esc(title)}</div>
       ${intro ? `<div style="font:400 16px/1.55 Arial,Helvetica,sans-serif;color:${MUTED};margin-top:12px">${intro}</div>` : ''}
     </td></tr>
-    ${button ? `<tr><td style="padding:24px 32px 4px"><a href="${esc(button.href)}" style="display:inline-block;background:${BLUE};color:#ffffff;text-decoration:none;font:700 16px Arial,Helvetica,sans-serif;padding:15px 24px;border-radius:10px">${esc(button.label)}</a></td></tr>` : ''}
+    ${button ? `<tr><td style="padding:24px 32px 4px">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td bgcolor="${BLUE}" style="background:${BLUE};border-radius:10px;mso-padding-alt:15px 24px">
+        <a href="${esc(button.href)}" target="_blank" style="display:inline-block;background:${BLUE};border:1px solid ${BLUE};border-radius:10px;color:#ffffff;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;line-height:20px;padding:15px 24px">${esc(button.label)}&nbsp;&rarr;</a>
+      </td></tr></table>
+      <div style="font:400 13px/1.5 Arial,Helvetica,sans-serif;color:${MUTED};margin-top:14px">Button not working? Copy this link:<br><a href="${esc(button.href)}" style="color:${BLUE};word-break:break-all">${esc(button.href)}</a></div>
+    </td></tr>` : ''}
     ${sec}
     <tr><td style="padding:30px 32px 30px;font:400 13px/1.5 Arial,Helvetica,sans-serif;color:${MUTED}">${footer || 'CCC Church Residency, a ministry of Christ Community Church<br>404 South 108th Avenue, Omaha, NE 68154 &middot; <a href="mailto:residency@cccomaha.org" style="color:' + BLUE + '">residency@cccomaha.org</a>'}</td></tr>
   </table>
