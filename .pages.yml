@@ -283,6 +283,10 @@ content:
         fields:
           - {name: name, label: Name, type: string, required: true, description: "The bold name under the photo and at the top of the profile."}
           - {name: focus, label: Ministry area, type: string, description: "The small blue all-caps line under the name."}
+          - name: alsoOnHome
+            label: Also show on home page
+            type: boolean
+            description: Not shown on this resident's card. Residents in the two newest cohorts rotate through the home page photos automatically. Turn this on to add someone from an older cohort who is still serving.
           - {name: photo, label: Photo, type: image, description: "Portrait photo. A tall (4 by 5) photo under 300 KB works best."}
           - name: crop
             label: Photo crop

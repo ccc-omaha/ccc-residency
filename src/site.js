@@ -7,6 +7,37 @@
     els.forEach(el => io.observe(el));
   } else els.forEach(el => el.classList.add('in'));
 
+  // home page: show a random set of current residents and swap one every few seconds
+  const strip = document.querySelector('[data-rotate]');
+  if (strip) {
+    const n = +strip.dataset.rotate;
+    const items = [...strip.children];
+    // shuffle which people fill the visible slots on each visit
+    const order = items.map((li, i) => [Math.random(), i]).sort((a, b) => a[0] - b[0]).map(x => x[1]);
+    const slots = items.slice(0, n);
+    const contents = order.map(i => [...items[i].childNodes]);
+    slots.forEach((li, k) => li.replaceChildren(...contents[k]));
+    const pool = contents.slice(n);
+    items.slice(n).forEach(li => li.remove());
+    strip.querySelectorAll('img').forEach(img => img.loading = 'eager');
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let paused = false, last = -1;
+    strip.addEventListener('mouseenter', () => paused = true);
+    strip.addEventListener('mouseleave', () => paused = false);
+    if (!still && pool.length) setInterval(() => {
+      if (paused || document.hidden) return;
+      let k; do { k = Math.floor(Math.random() * n); } while (k === last && n > 1); last = k;
+      const li = slots[k];
+      li.classList.add('swap');
+      setTimeout(() => {
+        const out = [...li.childNodes];
+        li.replaceChildren(...pool.shift());
+        pool.push(out);
+        li.classList.remove('swap');
+      }, 450);
+    }, 3200);
+  }
+
   // close the mobile menu after picking a link
   document.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () => a.closest('details').removeAttribute('open')));
 

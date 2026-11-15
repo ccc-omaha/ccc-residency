@@ -129,7 +129,9 @@ const page = (route, key, main, extra = {}) => {
 
 // ---------- home ----------
 const H = c.home;
-const heroPeople = current.flatMap(x => x.people).slice(0, 6);
+// home page rotation: every current resident, plus anyone flagged to also show there
+const heroPeople = [...current.flatMap(x => x.people), ...cohorts.filter(x => !isCurrent(x.year)).flatMap(x => x.people.filter(p => p.alsoOnHome))];
+const HERO_SLOTS = 6;
 const applySteps = (steps, cls = '') => `<ol class="steps${cls}">
 ${steps.map((s, i) => `          <li class="reveal" style="--d:${i * 80}ms"><h3>${txt(s.title)}</h3><p>${fmt(s.text)}</p>${s.buttonText && s.file ? `<a class="${/^#/.test(s.file) ? 'link' : 'dl-btn'}" href="${esc(s.file)}"${/\.(docx?|pdf)$/i.test(s.file) ? ' download' : ext(s.file)}>${txt(s.buttonText)} ${icon(/^#/.test(s.file) ? 'arrow' : 'down')}</a>` : ''}</li>`).join('\n')}
         </ol>`;
@@ -144,8 +146,8 @@ page('/', 'home', `
       </div>
     </div>
     <div class="arches" aria-label="Current residents">
-      <ul class="wrap">
-        ${heroPeople.map((p, i) => `<li>${pic(p.photo, p.name, 560, 700, i < 4 ? ' fetchpriority="high"' : '', `object-position:${CROP[p.crop] || 'center'}`).replace(' loading="lazy"', i < 4 ? '' : ' loading="lazy"')}<span>${txt(p.name.split(' ')[0])}<small>${esc(p.focus)}</small></span></li>`).join('\n        ')}
+      <ul class="wrap" data-rotate="${HERO_SLOTS}">
+        ${heroPeople.map((p, i) => `<li${i >= HERO_SLOTS ? ' hidden' : ''}>${pic(p.photo, p.name, 560, 700, i < 4 ? ' fetchpriority="high"' : '', `object-position:${CROP[p.crop] || 'center'}`).replace(' loading="lazy"', i < HERO_SLOTS ? '' : ' loading="lazy"')}<span>${txt(p.name.split(' ')[0])}<small>${esc(p.focus)}</small></span></li>`).join('\n        ')}
       </ul>
       <p class="wrap arches-note"><a href="/residents/">${totalResidents} residents since ${firstYear}. Meet them ${icon('arrow')}</a></p>
     </div>
@@ -389,7 +391,7 @@ ${HO.video.items.slice(1).map(v => videoFig(v)).join('\n')}
     </div>
   </section>` : ''}
 
-  <section class="sec" id="support" style="padding-top:0" aria-labelledby="support-h">
+  <section class="sec" id="support" aria-labelledby="support-h">
     <div class="wrap">
       <div class="support">
         <div class="rings" aria-hidden="true"></div>
