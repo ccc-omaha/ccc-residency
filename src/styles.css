@@ -89,30 +89,41 @@ p,li,summary,dd{text-wrap:pretty}
   .menu[open] .nav a.btn{font:700 18px/1 var(--sans);margin-top:16px;padding:16px;border-bottom:2px solid var(--blue)}
 }
 
-/* home hero: big serif type, then a row of arch portraits */
-.hero{position:relative;padding:clamp(56px,8vw,110px) 0 0;overflow:hidden}
-.hero > .wrap,.hero .arches{position:relative;z-index:1}
-.hero h1{max-width:1100px;margin-bottom:36px}
-.hero h1 .accent{display:block}
-.hero-sub{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:end;padding-bottom:clamp(48px,6vw,80px)}
-.hero-top{padding-bottom:0}
-.hero-sub .lead{margin:0;max-width:620px}
-.hero-sub .btns{margin:0;justify-content:flex-end}
-@media (max-width:860px){.hero-sub{grid-template-columns:1fr;gap:24px}.hero-sub .btns{justify-content:flex-start}}
-.arches{background:linear-gradient(to bottom,#fff 0 46%,var(--purple) 46%);padding-bottom:56px}
-.arches ul{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
-.arches li{position:relative;transition:opacity .45s ease,transform .45s ease}
-.arches li.swap{opacity:0;transform:translateY(8px)}
-.arches li[hidden]{display:none}
-.arches li:nth-child(even){margin-top:44px}
-.arches img{width:100%;aspect-ratio:4/5.4;object-fit:cover;border-radius:var(--arch);background:var(--pink)}
-.arches span{display:block;color:#fff;font:italic 400 24px/1.1 var(--serif);margin-top:14px}
-.arches small{display:block;font:600 12px/1.35 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--aqua);margin-top:6px}
-.arches-note{margin-top:44px;margin-bottom:0}
+/* home hero: purple, headline left, a slowly moving wall of residents right */
+.hero{position:relative;overflow:hidden;background:var(--purple);color:#fff}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);grid-template-areas:"top wall" "sub wall";column-gap:clamp(40px,5vw,88px);min-height:clamp(560px,calc(100svh - 120px),820px)}
+.hero-top{grid-area:top;align-self:end;padding-top:clamp(36px,6vh,96px)}
+.hero-sub{grid-area:sub;align-self:start;padding-bottom:clamp(36px,6vh,96px)}
+.hero .eyebrow{color:var(--aqua)}
+.hero .eyebrow::before{background:var(--aqua)}
+.hero h1{color:#fff;font-size:clamp(44px,min(5.2vw,8.4vh),84px);margin-bottom:26px}
+.hero h1 .accent{display:block;color:var(--aqua)}
+.hero .lead{margin:0;max-width:600px;font-size:clamp(18px,1.45vw,21px);color:rgba(255,255,255,.9)}
+.hero .lead strong{color:#fff}
+.hero .btns{margin:26px 0 0}
+.hero .btn{background:#fff;border-color:#fff;color:var(--purple)}
+.hero .btn:hover{background:var(--aqua);border-color:var(--aqua);color:var(--navy)}
+.hero .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.hero .btn.ghost:hover{border-color:#fff;background:transparent;color:#fff}
+.arches-note{margin:24px 0 0}
 .arches-note a{color:#fff;font-weight:700;text-decoration:none;display:inline-flex;gap:10px;align-items:center;border-bottom:2px solid var(--aqua);padding-bottom:3px}
 .arches-note .i{width:18px;height:18px}
-@media (max-width:900px){.arches ul{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.arches li:nth-child(even){margin-top:0}.arches{background:var(--purple);padding-top:40px}}
-@media (max-width:520px){.arches ul{gap:10px}.arches span{font-size:19px}.arches small{font-size:10px}}
+.hero .arches{grid-area:wall;position:relative;min-height:0;-webkit-mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent)}
+.arches ul{list-style:none;margin:0;padding:0}
+.arches li{position:relative}
+.arches li[hidden]{display:none}
+.arches img{width:100%;aspect-ratio:4/5.4;object-fit:cover;border-radius:var(--arch);background:var(--pink)}
+.arches span{display:block;color:#fff;font:italic 400 22px/1.1 var(--serif);margin-top:12px}
+.arches small{display:block;font:600 11px/1.35 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--aqua);margin-top:6px}
+/* desktop wall: three columns drifting in opposite directions */
+.arches > ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding-top:40px}
+.wall{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.wall ul{animation:rise 70s linear infinite;will-change:transform}
+.wall ul:nth-child(2){animation-direction:reverse;animation-duration:80s}
+.wall ul:nth-child(3){animation-delay:-30s}
+.wall li{padding-bottom:28px}
+.wall:hover ul{animation-play-state:paused}
+@keyframes rise{to{transform:translateY(-50%)}}
 
 /* facts: hairline columns, big serif numbers */
 .facts{background:var(--purple);color:#fff;padding:0 0 clamp(64px,8vw,96px)}
@@ -445,31 +456,27 @@ h4.mini{font:italic 400 22px var(--serif);color:var(--purple);margin:8px 0 -6px}
 @media (max-width:700px){.band img{aspect-ratio:4/3}}
 
 /* hero motif: the residency mark, drawn large and slowly turning behind the headline */
-.hero-mark{position:absolute;z-index:0;width:min(760px,70vw);height:min(760px,70vw);right:-12vw;top:-8vw;color:var(--purple);opacity:.07;animation:markspin 90s linear infinite}
+.hero-mark{position:absolute;z-index:0;width:min(900px,80vw);height:min(900px,80vw);left:-22vw;bottom:-36vw;color:#fff;opacity:.06;animation:markspin 90s linear infinite}
 @keyframes markspin{to{transform:rotate(360deg)}}
 
-/* phones: a full-color hero with a moving strip of residents */
+/* phones: headline, then a sideways strip of residents, then the intro */
 @media (max-width:860px){
-  .hero{background:var(--purple);color:#fff;padding-top:44px;display:flex;flex-direction:column}
-  .hero-top{order:1}
-  .hero .arches{order:2;background:none;padding:6px 0 0}
-  .hero-sub{order:3;padding:28px 24px 48px;width:auto;margin:0}
-  .hero .eyebrow{color:var(--aqua)}
-  .hero .eyebrow::before{background:var(--aqua)}
-  .hero h1{color:#fff;margin-bottom:28px}
-  .hero h1 .accent{color:var(--aqua)}
-  .hero .lead{color:rgba(255,255,255,.9)}
-  .hero .lead strong{color:#fff}
-  .hero .btn{background:#fff;border-color:#fff;color:var(--purple)}
-  .hero .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
-  .hero-mark{color:#fff;opacity:.08;width:150vw;height:150vw;right:-70vw;top:-30vw}
+  .hero{padding-top:44px}
+  .hero-grid{display:flex;flex-direction:column;width:100%;min-height:0}
+  .hero-top{order:1;padding:0 24px}
+  .hero h1{font-size:clamp(40px,11vw,60px);margin-bottom:28px}
+  .hero .arches{order:2;overflow:hidden;padding:6px 0 22px;-webkit-mask-image:none;mask-image:none}
+  .hero-sub{order:3;padding:28px 24px 48px}
+  .hero .lead{font-size:19px}
+  .hero-mark{width:150vw;height:150vw;left:auto;right:-70vw;bottom:auto;top:-30vw;opacity:.08}
   .arches-note{display:none}
-  .arches ul.marquee{display:flex;width:max-content;gap:14px;margin:0;padding:0 0 0 24px;animation:strip 45s linear infinite}
-  .arches ul.marquee li{width:138px;flex:none;margin:0!important}
+  .arches > ul{display:flex;gap:14px;padding:0}
+  .arches ul.marquee{width:max-content;padding:0 0 0 24px;animation:strip 45s linear infinite}
+  .arches ul.marquee li{width:138px;flex:none}
   .arches ul.marquee li:nth-child(even){transform:translateY(22px)}
   .arches ul.marquee span{font-size:19px}
   .arches ul.marquee small{font-size:10px}
-  .arches{overflow:hidden;padding-bottom:22px}
 }
 @keyframes strip{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.hero-mark,.arches ul.marquee{animation:none}.arches{overflow-x:auto}}
+@media (prefers-reduced-motion:reduce){.hero-mark,.arches ul.marquee,.wall ul{animation:none}}
+@media (prefers-reduced-motion:reduce) and (max-width:860px){.hero .arches{overflow-x:auto}}

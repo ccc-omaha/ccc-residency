@@ -140,19 +140,21 @@ ${steps.map((s, i) => `          <li class="reveal" style="--d:${i * 80}ms"><h3>
 page('/', 'home', `
   <section class="hero" aria-labelledby="hero-h">
     <svg class="hero-mark" aria-hidden="true"><use href="#mark"/></svg>
-    <div class="wrap hero-top">
-      <p class="eyebrow">${txt(H.hero.eyebrow)}</p>
-      <h1 id="hero-h">${txt(H.hero.heading)} <span class="accent">${txt(H.hero.headingAccent)}</span></h1>
-    </div>
-    <div class="wrap hero-sub">
-      <p class="lead">${fmt(H.hero.text)}</p>
-      <div class="btns">${btn(H.hero.primaryButton, H.hero.primaryLink)}${btn(H.hero.secondaryButton, H.hero.secondaryLink, 'ghost')}</div>
-    </div>
-    <div class="arches" aria-label="Current residents">
-      <ul class="wrap" data-rotate="${HERO_SLOTS}">
-        ${heroPeople.map((p, i) => `<li${i >= HERO_SLOTS ? ' hidden' : ''}>${pic(p.photo, p.name, 560, 700, i < 4 ? ' fetchpriority="high"' : '', `object-position:${CROP[p.crop] || 'center'}`).replace(' loading="lazy"', i < HERO_SLOTS ? '' : ' loading="lazy"')}<span>${txt(p.name.split(' ')[0])}<small>${esc(p.focus)}</small></span></li>`).join('\n        ')}
-      </ul>
-      <p class="wrap arches-note"><a href="/residents/">${totalResidents} residents since ${firstYear}. Meet them ${icon('arrow')}</a></p>
+    <div class="wrap hero-grid">
+      <div class="hero-top">
+        <p class="eyebrow">${txt(H.hero.eyebrow)}</p>
+        <h1 id="hero-h">${txt(H.hero.heading)} <span class="accent">${txt(H.hero.headingAccent)}</span></h1>
+      </div>
+      <div class="arches" aria-label="Current residents">
+        <ul data-rotate="${HERO_SLOTS}">
+          ${heroPeople.map((p, i) => `<li${i >= HERO_SLOTS ? ' hidden' : ''}>${pic(p.photo, p.name, 560, 700, i < 4 ? ' fetchpriority="high"' : '', `object-position:${CROP[p.crop] || 'center'}`).replace(' loading="lazy"', i < HERO_SLOTS ? '' : ' loading="lazy"')}<span>${txt(p.name.split(' ')[0])}<small>${esc(p.focus)}</small></span></li>`).join('\n          ')}
+        </ul>
+      </div>
+      <div class="hero-sub">
+        <p class="lead">${fmt(H.hero.text)}</p>
+        <div class="btns">${btn(H.hero.primaryButton, H.hero.primaryLink)}${btn(H.hero.secondaryButton, H.hero.secondaryLink, 'ghost')}</div>
+        <p class="arches-note"><a href="/residents/">${totalResidents} residents since ${firstYear}. Meet them ${icon('arrow')}</a></p>
+      </div>
     </div>
   </section>
 

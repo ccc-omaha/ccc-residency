@@ -7,7 +7,7 @@
     els.forEach(el => io.observe(el));
   } else els.forEach(el => el.classList.add('in'));
 
-  // home page: show a random set of current residents and swap one every few seconds
+  // home page: keep every current resident in motion (sideways strip on phones, drifting wall on desktop)
   const strip = document.querySelector('[data-rotate]');
   const phone = window.matchMedia('(max-width: 860px)').matches;
   if (strip && phone) {
@@ -18,32 +18,21 @@
     items.forEach(li => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); strip.appendChild(c); });
     strip.classList.add('marquee');
   } else if (strip) {
-    const n = +strip.dataset.rotate;
-    const items = [...strip.children];
-    // shuffle which people fill the visible slots on each visit
-    const order = items.map((li, i) => [Math.random(), i]).sort((a, b) => a[0] - b[0]).map(x => x[1]);
-    const slots = items.slice(0, n);
-    const contents = order.map(i => [...items[i].childNodes]);
-    slots.forEach((li, k) => li.replaceChildren(...contents[k]));
-    const pool = contents.slice(n);
-    items.slice(n).forEach(li => li.remove());
-    strip.querySelectorAll('img').forEach(img => img.loading = 'eager');
-    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let paused = false, last = -1;
-    strip.addEventListener('mouseenter', () => paused = true);
-    strip.addEventListener('mouseleave', () => paused = false);
-    if (!still && pool.length) setInterval(() => {
-      if (paused || document.hidden) return;
-      let k; do { k = Math.floor(Math.random() * n); } while (k === last && n > 1); last = k;
-      const li = slots[k];
-      li.classList.add('swap');
-      setTimeout(() => {
-        const out = [...li.childNodes];
-        li.replaceChildren(...pool.shift());
-        pool.push(out);
-        li.classList.remove('swap');
-      }, 450);
-    }, 3200);
+    // desktop: every current resident in three columns that drift up and down
+    const items = [...strip.children].sort(() => Math.random() - .5);
+    items.forEach(li => { li.hidden = false; li.querySelector('img').loading = 'eager'; });
+    const wall = document.createElement('div');
+    wall.className = 'wall';
+    const cols = [0, 1, 2].map(() => document.createElement('ul'));
+    items.forEach((li, i) => cols[i % 3].appendChild(li));
+    // repeat each column so the loop never shows a gap
+    cols.forEach(ul => {
+      const base = [...ul.children];
+      while (ul.children.length < 4) base.forEach(li => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); ul.appendChild(c); });
+      [...ul.children].forEach(li => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); ul.appendChild(c); });
+      wall.appendChild(ul);
+    });
+    strip.replaceWith(wall);
   }
 
   // close the mobile menu after picking a link
