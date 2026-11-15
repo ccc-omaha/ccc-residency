@@ -135,18 +135,19 @@ ${steps.map((s, i) => `          <li class="reveal" style="--d:${i * 80}ms"><h3>
         </ol>`;
 page('/', 'home', `
   <section class="hero" aria-labelledby="hero-h">
-    <div class="rings" aria-hidden="true"></div>
-    <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow">${txt(H.hero.eyebrow)}</p>
-        <h1 id="hero-h">${txt(H.hero.heading)} <span class="accent">${txt(H.hero.headingAccent)}</span></h1>
+    <div class="wrap">
+      <p class="eyebrow">${txt(H.hero.eyebrow)}</p>
+      <h1 id="hero-h">${txt(H.hero.heading)} <span class="accent">${txt(H.hero.headingAccent)}</span></h1>
+      <div class="hero-sub">
         <p class="lead">${fmt(H.hero.text)}</p>
         <div class="btns">${btn(H.hero.primaryButton, H.hero.primaryLink)}${btn(H.hero.secondaryButton, H.hero.secondaryLink, 'ghost')}</div>
       </div>
-      <div class="mosaic" aria-label="Current residents">
-        ${heroPeople.map((p, i) => `<figure>${pic(p.photo, p.name, 560, 700, i < 3 ? ' fetchpriority="high" loading="eager"' : '', `object-position:${CROP[p.crop] || 'center'}`).replace(' loading="lazy"', i < 3 ? '' : ' loading="lazy"')}</figure>`).join('\n        ')}
-        <div class="sticker" aria-hidden="true"><span><b>${totalResidents}</b>residents<br>since ${firstYear}</span></div>
-      </div>
+    </div>
+    <div class="arches" aria-label="Current residents">
+      <ul class="wrap">
+        ${heroPeople.map((p, i) => `<li>${pic(p.photo, p.name, 560, 700, i < 4 ? ' fetchpriority="high"' : '', `object-position:${CROP[p.crop] || 'center'}`).replace(' loading="lazy"', i < 4 ? '' : ' loading="lazy"')}<span>${txt(p.name.split(' ')[0])}<small>${esc(p.focus)}</small></span></li>`).join('\n        ')}
+      </ul>
+      <p class="wrap arches-note"><a href="/residents/">${totalResidents} residents since ${firstYear}. Meet them ${icon('arrow')}</a></p>
     </div>
   </section>
 
@@ -181,13 +182,6 @@ ${H.pillars.items.map((x, i) => `        <article class="pillar ${color(x.color)
     <div class="wrap">${head(H.focus, 'focus-h')}
       <ul class="chips">${c.program.areas.items.map(a => `<li class="${color(a.color)}">${txt(a.title)}</li>`).join('')}</ul>
       <p style="margin-top:32px"><a class="link" href="/program/#areas">${txt(H.focus.linkText)} ${icon('arrow')}</a></p>
-    </div>
-  </section>
-
-  <section class="sec on-dark" aria-labelledby="res-h">
-    <div class="wrap">${head(H.residents, 'res-h')}
-${current.map(x => cohortBlock(x, 'h3')).join('\n')}
-      <p style="margin-top:44px"><a class="btn orange" href="/residents/">${txt(H.residents.linkText)} ${icon('arrow')}</a></p>
     </div>
   </section>
 
