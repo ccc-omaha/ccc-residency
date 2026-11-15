@@ -38,7 +38,7 @@ export default async (req) => {
     if (body.send && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(to)) {
       const first = String(v['first-name'] || '').trim();
       const r = await send({
-        to, replyTo: 'residency@cccomaha.org',
+        to, replyTo: process.env.RESIDENCY_NOTIFY_TO || 'shannab@cccomaha.org',
         subject: 'Your CCC Church Residency application is saved',
         html: layout({
           preheader: 'Pick up your application where you left off.',
