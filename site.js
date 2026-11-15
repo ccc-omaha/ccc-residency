@@ -9,7 +9,15 @@
 
   // home page: show a random set of current residents and swap one every few seconds
   const strip = document.querySelector('[data-rotate]');
-  if (strip) {
+  const phone = window.matchMedia('(max-width: 860px)').matches;
+  if (strip && phone) {
+    // phones: every current resident in a slow, endless strip
+    const items = [...strip.children].sort(() => Math.random() - .5);
+    items.forEach(li => { li.hidden = false; strip.appendChild(li); });
+    strip.querySelectorAll('img').forEach(img => img.loading = 'eager');
+    items.forEach(li => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); strip.appendChild(c); });
+    strip.classList.add('marquee');
+  } else if (strip) {
     const n = +strip.dataset.rotate;
     const items = [...strip.children];
     // shuffle which people fill the visible slots on each visit

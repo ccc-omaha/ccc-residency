@@ -1,8 +1,9 @@
 // Saves an in-progress residency application so an applicant can finish later
 // from any device. Drafts live in Netlify Blobs under an unguessable key.
-// If RESEND_API_KEY and RESUME_FROM_EMAIL are set in Netlify, the resume link
-// is also emailed to the applicant automatically.
+// When RESEND_API_KEY and RESIDENCY_FROM_EMAIL are set in Netlify, the resume
+// link is also emailed to the applicant automatically.
 import { getStore } from '@netlify/blobs';
+import { layout, send } from './lib/email.mjs';
 import { randomBytes } from 'node:crypto';
 
 const MAX_BYTES = 200_000;
@@ -34,20 +35,21 @@ export default async (req) => {
 
     let emailed = false;
     const to = String(v.email || '').trim();
-    if (body.send && process.env.RESEND_API_KEY && process.env.RESUME_FROM_EMAIL && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(to)) {
+    if (body.send && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(to)) {
       const first = String(v['first-name'] || '').trim();
-      const r = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: { authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'content-type': 'application/json' },
-        body: JSON.stringify({
-          from: process.env.RESUME_FROM_EMAIL,
-          to: [to],
-          reply_to: 'residency@cccomaha.org',
-          subject: 'Your CCC Church Residency application',
-          text: `${first ? `Hi ${first},\n\n` : ''}Your application is saved. Use this link to pick up where you left off:\n\n${link}\n\nThe link works on any device for ${KEEP_DAYS} days. Anyone with the link can see your answers, so keep it to yourself.\n\nCCC Church Residency\nresidency@cccomaha.org`
-        })
-      }).catch(() => null);
-      emailed = !!(r && r.ok);
+      const r = await send({
+        to, replyTo: 'residency@cccomaha.org',
+        subject: 'Your CCC Church Residency application is saved',
+        html: layout({
+          preheader: 'Pick up your application where you left off.',
+          eyebrow: 'Saved for later',
+          title: first ? `${first}, your application is saved.` : 'Your application is saved.',
+          intro: `Use the button below to pick up right where you left off, on any device. The link works for ${KEEP_DAYS} days.<br><br>Anyone with this link can see your answers, so keep this email to yourself.`,
+          button: { href: link, label: 'Finish my application' }
+        }),
+        text: `Your application is saved. Pick up where you left off:\n\n${link}\n\nThe link works on any device for ${KEEP_DAYS} days. Anyone with the link can see your answers, so keep it to yourself.\n\nCCC Church Residency\nresidency@cccomaha.org`
+      });
+      emailed = r.ok;
     }
     return json({ id, link, emailed });
   }
