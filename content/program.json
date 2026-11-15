@@ -192,6 +192,7 @@
   },
   "band": {
     "photo": "/images/site/cohort-walking-downtown.jpg",
-    "photoAlt": "Residents walking together down a brick street in downtown Omaha"
+    "photoAlt": "Residents walking together down a brick street in downtown Omaha",
+    "crop": "Center"
   }
 }

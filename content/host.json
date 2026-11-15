@@ -117,6 +117,7 @@
   },
   "band": {
     "photo": "/images/site/cohort-with-karl.jpg",
-    "photoAlt": "Residents laughing with Karl Pagenkemper on a garden bench"
+    "photoAlt": "Residents laughing with Karl Pagenkemper on a garden bench",
+    "crop": "Top"
   }
 }

@@ -164,6 +164,17 @@ content:
         fields:
           - {name: photo, label: Photo, type: image, description: A wide (landscape) photo under 800 KB. Leave blank to hide the wide photo.}
           - {name: photoAlt, label: Photo description, type: string, description: Not shown on the page. Describes the photo for screen readers.}
+          - name: crop
+            label: Photo crop
+            type: select
+            description: Not shown on the page. Which part of the photo to keep. Pick Top if heads are getting cut off.
+            options:
+              values:
+                - Top
+                - Upper third
+                - Center
+                - Lower third
+                - Bottom
       - name: week
         label: Your week
         type: object
@@ -335,6 +346,17 @@ content:
         fields:
           - {name: photo, label: Photo, type: image, description: A wide (landscape) photo under 800 KB. Leave blank to hide the wide photo.}
           - {name: photoAlt, label: Photo description, type: string, description: Not shown on the page. Describes the photo for screen readers.}
+          - name: crop
+            label: Photo crop
+            type: select
+            description: Not shown on the page. Which part of the photo to keep. Pick Top if heads are getting cut off.
+            options:
+              values:
+                - Top
+                - Upper third
+                - Center
+                - Lower third
+                - Bottom
       - name: past
         label: Past cohorts
         type: object
@@ -439,6 +461,17 @@ content:
         fields:
           - {name: photo, label: Photo, type: image, description: A wide (landscape) photo under 800 KB. Leave blank to hide the wide photo.}
           - {name: photoAlt, label: Photo description, type: string, description: Not shown on the page. Describes the photo for screen readers.}
+          - name: crop
+            label: Photo crop
+            type: select
+            description: Not shown on the page. Which part of the photo to keep. Pick Top if heads are getting cut off.
+            options:
+              values:
+                - Top
+                - Upper third
+                - Center
+                - Lower third
+                - Bottom
       - name: steps
         label: Next steps
         type: object

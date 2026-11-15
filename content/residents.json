@@ -25,6 +25,7 @@
   },
   "band": {
     "photo": "/images/site/cohort-laughing-wall.jpg",
-    "photoAlt": "Four residents laughing in front of a stone wall"
+    "photoAlt": "Four residents laughing in front of a stone wall",
+    "crop": "Top"
   }
 }

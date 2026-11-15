@@ -37,7 +37,7 @@ const pic = (p, alt, w, h, attrs = '', style = '') => {
   return `<picture>${has ? `<source type="image/webp" srcset="${esc(webp)}">` : ''}<img src="${esc(s)}" alt="${esc(alt)}" width="${w}" height="${h}" loading="lazy" decoding="async"${attrs}${st}></picture>`;
 };
 const band = x => x && x.photo ? `
-  <div class="band reveal"><div class="wrap">${pic(x.photo, x.photoAlt || '', 2200, 1467)}</div></div>` : '';
+  <div class="band reveal"><div class="wrap">${pic(x.photo, x.photoAlt || '', 2200, 1467, '', `object-position:${CROP[x.crop] || CROP['Upper third']}`)}</div></div>` : '';
 const head = (x, id, cls = '') => `
       <div class="sec-head${cls}">
         ${x.eyebrow ? `<p class="eyebrow">${txt(x.eyebrow)}</p>` : ''}
