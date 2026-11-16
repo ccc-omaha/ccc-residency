@@ -1,6 +1,6 @@
 // Runs on every verified Netlify Forms submission (Netlify calls this by name).
 // 1. Keeps a backup copy of every submission in Netlify Blobs.
-// 2. Emails Shanna a readable version; applications include a printable PDF.
+// 2. Emails the residency team (residency@cccomaha.org) a readable version; applications include a printable PDF.
 // 3. Emails the row to a mailbox that a Power Automate flow copies into Excel.
 import { getStore, connectLambda } from '@netlify/blobs';
 import { layout, send, emailReady } from './lib/email.mjs';
@@ -8,7 +8,7 @@ import { applicationPdf, nice } from './lib/pdf.mjs';
 import schema from './lib/application-schema.mjs';
 import { excelRow } from './lib/excel.mjs';
 
-const NOTIFY = () => (process.env.RESIDENCY_NOTIFY_TO || 'shannab@cccomaha.org').split(',').map(s => s.trim()).filter(Boolean);
+const NOTIFY = () => (process.env.RESIDENCY_NOTIFY_TO || 'residency@cccomaha.org').split(',').map(s => s.trim()).filter(Boolean);
 const SKIP = new Set(['form-name', 'subject', 'bot-field', 'ip', 'user_agent', 'referrer']);
 const pretty = k => k.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase());
 

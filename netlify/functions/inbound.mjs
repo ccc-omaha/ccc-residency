@@ -1,6 +1,6 @@
 // Mail sent to any @cccresidency.org address (residency@, a typo, anything)
 // arrives at Resend, which calls this webhook. We fetch the message and pass
-// it on to the residency inbox (Shanna by default), keeping the original
+// it on to the residency inbox (residency@cccomaha.org by default), keeping the original
 // sender as the reply-to so a reply goes straight back to them.
 //
 // Needs RESEND_WEBHOOK_SECRET (from the webhook's page in Resend) so only
@@ -9,7 +9,7 @@ import PostalMime from 'postal-mime';
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { send } from './lib/email.mjs';
 
-const TO = () => process.env.RESIDENCY_NOTIFY_TO || 'shannab@cccomaha.org';
+const TO = () => process.env.RESIDENCY_NOTIFY_TO || 'residency@cccomaha.org';
 const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json' } });
 
 // Resend signs webhooks the Svix way: HMAC-SHA256 of "id.timestamp.body"
