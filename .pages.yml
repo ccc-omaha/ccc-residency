@@ -61,7 +61,7 @@ content:
           - {name: eyebrow, label: Small label, type: string, description: "The small blue all-caps line above the big headline."}
           - {name: heading, label: Headline, type: string, description: "The big navy headline."}
           - {name: headingAccent, label: Headline second line, type: string, description: "The blue italic line under the headline."}
-          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline."}
+          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: primaryButton, label: Blue button text, type: string, description: "The solid blue button under the intro."}
           - {name: primaryLink, label: Blue button link, type: string, description: "Where the blue button goes."}
           - {name: secondaryButton, label: Outline button text, type: string, description: "The outlined button next to the blue one."}
@@ -89,7 +89,7 @@ content:
             list: {min: 3, max: 3}
             fields:
               - {name: title, label: Card title, type: string, description: "The bold title on the card."}
-              - {name: text, label: Card text, type: text, description: "The paragraph on the card."}
+              - {name: text, label: Card text, type: text, description: "The paragraph on the card. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
               - {name: color, label: Shadow color, component: color, description: "The color of the number circle and the card's shadow."}
       - name: who
         label: Who it's for
@@ -98,9 +98,9 @@ content:
         fields:
           - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
           - {name: heading, label: Heading, type: string, description: "The heading next to the photo."}
-          - {name: text, label: Paragraph, type: text, description: "The paragraph under the heading."}
+          - {name: text, label: Paragraph, type: text, description: "The paragraph under the heading. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: points, label: Checkmark lines, type: string, list: true, description: "Each line gets a blue checkmark."}
-          - {name: note, label: Note, type: text, description: "The white box with the orange info icon under the checkmarks."}
+          - {name: note, label: Note, type: text, description: "The white box with the orange info icon under the checkmarks. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: photo, label: Photo, type: image, description: The tall arch-shaped photo next to this section. Use a portrait (tall) photo under 500 KB.}
           - {name: photoAlt, label: Photo description, type: string, description: Not shown on the page. Describes the photo for screen readers.}
       - name: focus
@@ -110,7 +110,7 @@ content:
         fields:
           - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
           - {name: heading, label: Heading, type: string, description: "The heading above the colored pills."}
-          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: linkText, label: Link text, type: string, description: "The blue link under the pills that goes to the Program page."}
       - name: residents
         label: Meet the residents
@@ -134,7 +134,7 @@ content:
         description: "The last section before the footer, with the tilted photo."
         fields:
           - {name: heading, label: Heading, type: string, description: "The big heading on the left."}
-          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: primaryButton, label: Blue button text, type: string, description: "The solid blue button."}
           - {name: primaryLink, label: Blue button link, type: string, description: "Where the blue button goes."}
           - {name: secondaryButton, label: Outline button text, type: string, description: "The outlined button."}
@@ -156,7 +156,7 @@ content:
         fields:
           - {name: eyebrow, label: Small label, type: string, description: "The small blue all-caps line above the headline."}
           - {name: heading, label: Headline, type: string, description: "The big headline."}
-          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline."}
+          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
       - name: band
         label: Wide photo
         type: object
@@ -193,7 +193,7 @@ content:
               - {name: text, label: Bar text, type: string, description: "The sentence inside the colored bar."}
               - {name: max, label: Top of the hour range, type: number, description: "Not shown on the page. The highest number in the range. Sets how long the bar is compared to the others."}
               - {name: color, label: Bar color, component: color, description: "The color of the bar."}
-          - {name: note, label: Note, type: text, description: "The small line under the bars."}
+          - {name: note, label: Note, type: text, description: "The small line under the bars. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
       - name: development
         label: What you'll develop
         type: object
@@ -201,7 +201,7 @@ content:
         fields:
           - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
           - {name: heading, label: Heading, type: string, description: "The heading above the cards."}
-          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - name: items
             label: Cards
             type: object
@@ -218,7 +218,7 @@ content:
         fields:
           - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
           - {name: heading, label: Heading, type: string, description: "The heading above the tiles."}
-          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - name: items
             label: Tiles
             type: object
@@ -236,7 +236,7 @@ content:
         fields:
           - {name: eyebrow, label: Small label, type: string, description: "The small all-caps line above the heading."}
           - {name: heading, label: Heading, type: string, description: "The heading above the boxes."}
-          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - name: groups
             label: Boxes
             type: object
@@ -254,7 +254,7 @@ content:
         fields:
           - {name: eyebrow, label: Small label, type: string, description: "The small aqua all-caps line above the heading."}
           - {name: heading, label: Heading, type: string, description: "The white heading above the boxes."}
-          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - name: items
             label: Boxes
             type: object
@@ -262,7 +262,7 @@ content:
             list: true
             fields:
               - {name: title, label: Box title, type: string, description: "The aqua title in the box."}
-              - {name: text, label: Box text, type: text, description: "The sentence in the box."}
+              - {name: text, label: Box text, type: text, description: "The sentence in the box. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: note, label: Giving note, type: string, description: 'The small line under the five boxes, with a link to the giving section on the Host & Support page.'}
       - name: team
         label: Residency team
@@ -315,7 +315,7 @@ content:
             options: {values: [Top, Upper third, Center, Lower third, Bottom]}
           - {name: hometown, label: Hometown, type: string, description: "The gray line under the ministry area, and in the profile."}
           - {name: college, label: College and degree, type: string, description: "Shown in the profile only."}
-          - {name: calling, label: Call to ministry, type: text, description: "Shown in the profile only."}
+          - {name: calling, label: Call to ministry, type: text, description: "Shown in the profile only. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: food, label: Favorite food, type: string, description: "The cream box at the bottom of the profile."}
           - {name: drink, label: Coffee order, type: string, description: "The cream box at the bottom of the profile."}
 
@@ -332,7 +332,7 @@ content:
         fields:
           - {name: eyebrow, label: Small label, type: string, description: "The small blue all-caps line above the headline."}
           - {name: heading, label: Headline, type: string, description: "The big headline."}
-          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline. {residents}, {cohorts}, and {first} fill in automatically with the resident count, cohort count, and first year."}
+          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline. {residents}, {cohorts}, and {first} fill in automatically with the resident count, cohort count, and first year. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
       - name: current
         label: Current residents
         type: object
@@ -370,7 +370,7 @@ content:
         description: The white box with a Give button under the current residents, on the Residents page and on current cohort pages. The button uses the giving link from the Host & Support page.
         fields:
           - {name: heading, label: Heading, type: string, description: The bold heading in the box.}
-          - {name: text, label: Paragraph, type: text, description: The line under the heading.}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: buttonText, label: Button text, type: string, description: The blue Give button. Leave the heading blank to hide the whole box.}
       - name: labels
         label: Profile labels
@@ -397,7 +397,7 @@ content:
         fields:
           - {name: eyebrow, label: Small label, type: string, description: "The small blue all-caps line above the headline."}
           - {name: heading, label: Headline, type: string, description: "The big headline."}
-          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline."}
+          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: buttonText, label: Button text, type: string, description: "The blue button under the paragraph."}
           - {name: link, label: Button link, type: string, description: "Where the blue button goes. Currently the Church Center host family form."}
           - {name: photo, label: Photo, type: image, description: "The arch-shaped photo on the right. Use a portrait (tall) photo under 500 KB."}
@@ -408,7 +408,7 @@ content:
         description: "The white section next to the first video."
         fields:
           - {name: heading, label: Heading, type: string, description: "The heading on the left."}
-          - {name: text, label: Paragraph, type: text, description: "The paragraph under the heading."}
+          - {name: text, label: Paragraph, type: text, description: "The paragraph under the heading. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
       - name: video
         label: Videos
         type: object
@@ -439,7 +439,7 @@ content:
             list: true
             fields:
               - {name: title, label: Card title, type: string, description: "The bold title on the card."}
-              - {name: text, label: Card text, type: text, description: "The paragraph on the card."}
+              - {name: text, label: Card text, type: text, description: "The paragraph on the card. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
       - name: residents
         label: What residents commit to
         type: object
@@ -486,10 +486,10 @@ content:
             list: true
             fields:
               - {name: title, label: Step title, type: string, description: "The bold title on the step card. Numbers are added automatically."}
-              - {name: text, label: Step text, type: text, description: "The paragraph on the step card."}
+              - {name: text, label: Step text, type: text, description: "The paragraph on the step card. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
               - {name: buttonText, label: Button text, type: string, description: "The small outlined button at the bottom of the card. Leave blank for no button."}
               - {name: link, label: Button link, type: string, description: "Where the button goes. A PDF link downloads the file."}
-          - {name: note, label: Note, type: text, description: "The white box with the orange info icon under the steps."}
+          - {name: note, label: Note, type: text, description: "The white box with the orange info icon under the steps. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
       - name: support
         label: Support a resident
         type: object
@@ -497,7 +497,7 @@ content:
         fields:
           - {name: eyebrow, label: Small label, type: string, description: "The small navy all-caps line in the blue box."}
           - {name: heading, label: Heading, type: string, description: "The white heading in the blue box."}
-          - {name: text, label: Paragraph, type: text, description: "The paragraph in the blue box."}
+          - {name: text, label: Paragraph, type: text, description: "The paragraph in the blue box. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: buttonText, label: Button text, type: string, description: "The navy button in the blue box."}
           - {name: link, label: Button link, type: string, description: "Where the button goes. Currently Church Center giving."}
 
@@ -515,7 +515,7 @@ content:
         fields:
           - {name: eyebrow, label: Small label, type: string, description: "The small blue all-caps line above the headline."}
           - {name: heading, label: Headline, type: string, description: "The big headline."}
-          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline."}
+          - {name: text, label: Intro paragraph, type: text, description: "The paragraph under the headline. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: photo, label: Photo, type: image, description: The arch-shaped photo beside the headline. Use a portrait (tall) photo under 500 KB. Leave blank to hide it.}
           - {name: photoAlt, label: Photo description, type: string, description: Not shown on the page. Describes the photo for screen readers.}
       - name: steps
@@ -525,7 +525,7 @@ content:
         description: "The numbered step cards. Also shown on the home page."
         fields:
           - {name: title, label: Step title, type: string, description: "The bold title on the step card."}
-          - {name: text, label: Step text, type: text, description: "The paragraph on the step card."}
+          - {name: text, label: Step text, type: text, description: "The paragraph on the step card. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: buttonText, label: Button text, type: string, description: "The button or link at the bottom of the card. Leave blank for none."}
           - {name: file, label: Button link or file, type: string, description: "Where the button goes. #application jumps to the form. Leave blank for no button."}
       - name: fit
@@ -541,8 +541,8 @@ content:
         description: "The step-by-step application. Contact, church, education, ministry, and reference questions are built in. The written questions, statement of faith, and agreement are edited here. Submissions are emailed by Netlify."
         fields:
           - {name: heading, label: Heading, type: string, description: The heading above the form.}
-          - {name: text, label: Paragraph, type: text, description: The line under the heading.}
-          - {name: saveNote, label: Save note, type: text, description: "The line under the form buttons and in the box beside the form, explaining that answers save on the applicant's device."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
+          - {name: saveNote, label: Save note, type: text, description: "The line under the form buttons and in the box beside the form, explaining that answers save on the applicant's device. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: education, label: Education choices, type: string, list: true, description: The choices in the Highest level of education dropdown on step 2.}
           - name: questionSteps
             label: Written question steps
@@ -560,8 +560,8 @@ content:
                 fields:
                   - {name: q, label: Question, type: string, description: The question above the answer box.}
                   - {name: required, label: Required, type: boolean, description: Not shown on the page. Turn off to make the question optional.}
-          - {name: statementOfFaith, label: Statement of faith, type: text, list: true, description: The paragraphs in the scrolling cream box on the last step. Applicants check I agree under it.}
-          - {name: agreement, label: Application agreement, type: text, description: 'The agreement text on the last step, above its I agree checkbox.'}
+          - {name: statementOfFaith, label: Statement of faith, type: text, list: true, description: "The paragraphs in the scrolling cream box on the last step. Applicants check I agree under it. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
+          - {name: agreement, label: Application agreement, type: text, description: "The agreement text on the last step, above its I agree checkbox. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: success, label: Thank-you message, type: string, description: The green message that replaces the form after someone submits.}
       - name: info
         label: Get more info form
@@ -569,7 +569,7 @@ content:
         description: "The left form in the cream section."
         fields:
           - {name: heading, label: Heading, type: string, description: "The heading above the form."}
-          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: success, label: Thank-you message, type: string, description: "The green message that replaces the form after someone submits."}
       - name: contact
         label: Question form
@@ -577,7 +577,7 @@ content:
         description: "The right form in the cream section."
         fields:
           - {name: heading, label: Heading, type: string, description: "The heading above the form."}
-          - {name: text, label: Paragraph, type: text, description: "The line under the heading."}
+          - {name: text, label: Paragraph, type: text, description: "The line under the heading. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
           - {name: success, label: Thank-you message, type: string, description: "The green message that replaces the form after someone submits."}
       - name: faq
         label: FAQ
@@ -592,7 +592,7 @@ content:
             list: true
             fields:
               - {name: q, label: Question, type: string, description: "The bold question you click to open."}
-              - {name: a, label: Answer, type: text, description: "The answer that appears when the question is opened."}
+              - {name: a, label: Answer, type: text, description: "The answer that appears when the question is opened. For italics, put one star (asterisk) on each side of the words. For bold, put two stars on each side."}
 
   # ---------------------------------------------------------------
   - name: seo
