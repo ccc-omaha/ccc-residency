@@ -5,7 +5,7 @@
     "text": "A healthy, stable place to live is a big part of a resident's growth. Our host families give residents a private room, a safe home, and a front-row seat to everyday faith. Would you prayerfully consider hosting a resident?",
     "buttonText": "Apply to host",
     "link": "https://cccomaha.churchcenter.com/people/forms/232237",
-    "photo": "/images/site/bryce-kat.jpg",
+    "photo": "/images/md507472-lowresolution.jpg",
     "photoAlt": "Two residents smiling together"
   },
   "stability": {
@@ -20,8 +20,7 @@
         "link": "https://vimeo.com/879521929",
         "poster": "/images/site/host-video-2023.jpg"
       }
-    ],
-    "text": ""
+    ]
   },
   "hosts": {
     "eyebrow": "What hosts do",
@@ -77,6 +76,11 @@
       "Finds another home for the resident if the need ever arises"
     ]
   },
+  "band": {
+    "photo": "/images/site/cohort-with-karl.jpg",
+    "photoAlt": "Residents laughing with Karl Pagenkemper on a garden bench",
+    "crop": "Top"
+  },
   "steps": {
     "eyebrow": "Next steps",
     "heading": "How to become a host family.",
@@ -95,15 +99,11 @@
       },
       {
         "title": "Complete a background check",
-        "text": "Every adult living in the home completes one. We ask the same of every incoming resident.",
-        "buttonText": "",
-        "link": ""
+        "text": "Every adult living in the home completes one. We ask the same of every incoming resident."
       },
       {
         "title": "Schedule a home visit",
-        "text": "A member of the residency team will walk through the space with you, in person or virtually.",
-        "buttonText": "",
-        "link": ""
+        "text": "A member of the residency team will walk through the space with you, in person or virtually."
       }
     ],
     "note": "Want to talk with a current or former host family first? [Send us a note](/apply/#contact) and we'll connect you."
@@ -114,10 +114,5 @@
     "text": "Each month, residents raise their own financial support, and the church matches donations up to $400 per month per resident. Partner with a resident by giving online.",
     "buttonText": "Give to the residency",
     "link": "https://cccomaha.churchcenter.com/giving/"
-  },
-  "band": {
-    "photo": "/images/site/cohort-with-karl.jpg",
-    "photoAlt": "Residents laughing with Karl Pagenkemper on a garden bench",
-    "crop": "Top"
   }
 }
