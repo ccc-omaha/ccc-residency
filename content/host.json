@@ -2,7 +2,7 @@
   "intro": {
     "eyebrow": "Host or support a resident",
     "heading": "Open your home to a future ministry leader.",
-    "text": "A healthy, stable place to live is a big part of a resident's growth. Our host families give residents a private room, a safe home, and a front-row seat to everyday faith. Would you prayerfully consider hosting a resident?",
+    "text": "A healthy, stable place to live is a big part of a resident’s growth. Our host families give residents a private room, a safe home, and a front-row seat to everyday faith. Would you prayerfully consider hosting a resident?",
     "buttonText": "Apply to host",
     "link": "https://cccomaha.churchcenter.com/people/forms/232237",
     "photo": "/images/md507472-lowresolution.jpg",
@@ -10,7 +10,7 @@
   },
   "stability": {
     "heading": "Why one to two years?",
-    "text": "Instead of moving residents every few months, we ask hosts to commit to one to two years. Long-term stability is better for the resident's development, and it gives you time to build a real relationship."
+    "text": "Instead of moving residents every few months, we ask hosts to commit to one to two years. Long-term stability is better for the resident’s development, and it gives you time to build a real relationship."
   },
   "video": {
     "heading": "Hear from the residency director.",
@@ -28,7 +28,7 @@
     "items": [
       {
         "title": "Pray and agree",
-        "text": "Listen to the Holy Spirit about whether this is right for your family. If you're married, you and your spouse should both be fully on board."
+        "text": "Listen to the Holy Spirit about whether this is right for your family. If you’re married, you and your spouse should both be fully on board."
       },
       {
         "title": "Provide a private space",
@@ -40,7 +40,7 @@
       },
       {
         "title": "Host free of charge",
-        "text": "Don't expect payment for rent and utilities. It removes a major cost for the resident and helps the church financially."
+        "text": "Don’t expect payment for rent and utilities. It removes a major cost for the resident and helps the church financially."
       },
       {
         "title": "Have reliable Wi-Fi",
@@ -106,7 +106,7 @@
         "text": "A member of the residency team will walk through the space with you, in person or virtually."
       }
     ],
-    "note": "Want to talk with a current or former host family first? [Send us a note](/apply/#contact) and we'll connect you."
+    "note": "Want to talk with a current or former host family first? [Send us a note](/apply/#contact) and we’ll connect you."
   },
   "support": {
     "eyebrow": "Support a resident",
