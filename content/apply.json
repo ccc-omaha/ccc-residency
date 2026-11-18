@@ -6,21 +6,10 @@
     "photo": "/images/site/josiah-looking-up.jpg",
     "photoAlt": "A resident smiling and looking up"
   },
-  "fit": {
-    "heading": "Is this a fit?",
-    "points": [
-      "You sense a call to explore vocational ministry",
-      "You have a bachelor's degree, or you want to complete thirty credit hours of Bible and theology through Crown College",
-      "You can commit to two years in Omaha (three on the counseling licensure track)",
-      "You have your own vehicle and transportation"
-    ]
-  },
   "steps": [
     {
       "title": "Gather a few things",
-      "text": "You'll need your church's info, your GPA, and names and emails for two leaders who know you.",
-      "buttonText": "",
-      "file": ""
+      "text": "You’ll need your church’s info, your GPA, and the names and emails of two leaders who know you."
     },
     {
       "title": "Fill out the application",
@@ -30,11 +19,18 @@
     },
     {
       "title": "Hear from us",
-      "text": "A member of our residency leadership team will reach out within a few business days about next steps.",
-      "buttonText": "",
-      "file": ""
+      "text": "A member of our residency leadership team will reach out within a few business days about next steps."
     }
   ],
+  "fit": {
+    "heading": "Is this a fit?",
+    "points": [
+      "You sense a call to explore vocational ministry",
+      "You have a bachelor’s degree, or you want to complete thirty credit hours of Bible and theology through Crown College",
+      "You can commit to two years in Omaha (three on the counseling licensure track)",
+      "You have your own vehicle and transportation"
+    ]
+  },
   "application": {
     "heading": "Application",
     "text": "Keep each written answer short, about 3–5 sentences. Fields marked with an asterisk are required.",
@@ -43,8 +39,8 @@
       "High school diploma",
       "Some college",
       "Associate degree",
-      "Bachelor's degree",
-      "Master's degree or higher"
+      "Bachelor’s degree",
+      "Master’s degree or higher"
     ],
     "questionSteps": [
       {
@@ -82,7 +78,7 @@
             "required": true
           },
           {
-            "q": "A big part of the residency is earning a master's degree through Crown College. Why do you think getting that degree is an important part of your leadership development?",
+            "q": "A big part of the residency is earning a master’s degree through Crown College. Why do you think getting that degree is an important part of your leadership development?",
             "required": true
           }
         ]
@@ -111,7 +107,7 @@
       },
       {
         "title": "Beliefs",
-        "intro": "In your own words. There's no need to look anything up.",
+        "intro": "In your own words. There’s no need to look anything up.",
         "questions": [
           {
             "q": "What do you believe about the authority of the Bible?",
@@ -158,22 +154,22 @@
       "It is the will of God that each believer should be filled with the Holy Spirit and be sanctified wholly, being separated from sin and the world and fully dedicated to the will of God, thereby receiving power for holy living and effective service. This is both a crisis and a progressive experience wrought in the life of the believer subsequent to conversion.",
       "Provision is made in the redemptive work of the Lord Jesus Christ for the healing of the whole person. Prayer for the sick and anointing with oil are taught in the Scriptures and are privileges for the Church in this present age.",
       "The Church consists of all those who believe on the Lord Jesus Christ, are redeemed through his blood, and are born again of the Holy Spirit. Christ is the Head of the Body, the Church, which has been commissioned by him to go into all the world making disciples of all peoples.",
-      "The local church is a body of believers in Christ who are called to love and joined together for the worship of God, edification through the Word of God, prayer, fellowship, proclamation of the gospel through word and deed, and observance of the ordinances of Baptism and the Lord's Supper.",
+      "The local church is a body of believers in Christ who are called to love and joined together for the worship of God, edification through the Word of God, prayer, fellowship, proclamation of the gospel through word and deed, and observance of the ordinances of Baptism and the Lord’s Supper.",
       "There will be a bodily resurrection of all people. Our Lord Jesus Christ will judge with perfect justice as the unrepentant and unbelieving are raised to the conscious anguish of eternal separation from God, and repentant believers are raised to the unending joy of eternal life with God.",
-      "The Second Coming of the Lord Jesus Christ is imminent and will be personal, visible, and premillennial. This is the believer's blessed hope and is a vital truth which is an incentive to holy living and faithful service."
+      "The Second Coming of the Lord Jesus Christ is imminent and will be personal, visible, and premillennial. This is the believer’s blessed hope and is a vital truth which is an incentive to holy living and faithful service."
     ],
     "agreement": "I, the undersigned applicant, hereby certify that the information contained on this application for the Christ Community Church Residency is true and correct, and I have not omitted any facts which I reasonably believe would reflect unfavorably on the church's decision. In addition, I hereby authorize the church to contact any person or institution I have listed on this application for Church Residency (unless indicated otherwise), and to independently verify the correctness of the information I have provided. All resident applicants will be required to consent to a background check prior to acceptance into the program.",
     "success": "Thanks! Your application is in. A member of our residency leadership team will be in touch within a few business days."
   },
   "info": {
     "heading": "Not ready to apply?",
-    "text": "Tell us a little about yourself and we'll send you more information about the residency.",
-    "success": "Thanks! We'll be in touch soon."
+    "text": "Tell us a little about yourself and we’ll send you more information about the residency.",
+    "success": "Thanks! We’ll be in touch soon."
   },
   "contact": {
     "heading": "Have a question?",
-    "text": "Send us a note and we'll get back to you as soon as we can.",
-    "success": "Thanks! Your message is on its way. We'll get back to you soon."
+    "text": "Send us a note and we’ll get back to you as soon as we can.",
+    "success": "Thanks! Your message is on its way. We’ll get back to you soon."
   },
   "faq": {
     "heading": "Frequently asked questions",
@@ -187,7 +183,7 @@
         "a": "Residents raise their own monthly financial support, and CCC matches donations up to $400 a month per resident."
       },
       {
-        "q": "What does the master's degree cost?",
+        "q": "What does the master’s degree cost?",
         "a": "Nothing. Your degree through Crown College is fully funded, including books and fees."
       },
       {
@@ -200,11 +196,11 @@
       },
       {
         "q": "Do I need a college degree?",
-        "a": "No. Residents without a bachelor's degree complete the Crown 30 certificate, thirty credit hours of Bible and theology."
+        "a": "No. Residents without a bachelor’s degree complete the Crown 30 certificate, thirty credit hours of Bible and theology."
       },
       {
         "q": "Can I choose my ministry area?",
-        "a": "Yes. You'll choose a primary area of focus and work with a mentor in that area. [See the areas of focus](/program/#areas)."
+        "a": "Yes. You’ll choose a primary area of focus and work with a mentor in that area. [See the areas of focus](/program/#areas)."
       },
       {
         "q": "Do I need a car?",
